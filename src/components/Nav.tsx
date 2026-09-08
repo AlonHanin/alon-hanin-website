@@ -5,6 +5,7 @@ import { site } from "../config/site";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "./Container";
 import { CTAButton } from "./Button";
+import { Avatar } from "./Avatar";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -29,9 +30,7 @@ export function Nav() {
           href="#home"
           className="flex items-center gap-2.5 font-display text-lg font-bold text-ink"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-ink text-sm font-bold text-paper">
-            {lang === "he" ? "א" : "A"}
-          </span>
+          <Avatar size={34} />
           <span>{site[lang].name}</span>
         </a>
 
