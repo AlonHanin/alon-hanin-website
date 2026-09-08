@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Languages } from "lucide-react";
 import { nav, hero, langToggle } from "../data/siteContent";
-import { site } from "../config/site";
+import { site, showProjects } from "../config/site";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "./Container";
 import { CTAButton } from "./Button";
@@ -21,7 +21,7 @@ export function Nav() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const navItems = nav[lang];
+  const navItems = nav[lang].filter((item) => showProjects || item.id !== "projects");
 
   return (
     <header className="sticky top-0 z-50 border-b border-line-soft/80 bg-paper/85 backdrop-blur-md">

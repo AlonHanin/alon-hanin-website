@@ -1,5 +1,8 @@
 import type { Localized } from "../types";
 
+// Set to true to restore both the projects section and its navigation links.
+export const showProjects = false;
+
 /**
  * Core brand configuration.
  * Change the brand name / descriptor here — nothing else in the app

@@ -8,6 +8,7 @@ import { ProjectsSection } from "./sections/ProjectsSection";
 import { AboutSection } from "./sections/AboutSection";
 import { WhySection } from "./sections/WhySection";
 import { ContactSection } from "./sections/ContactSection";
+import { showProjects } from "./config/site";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <PainPointSection />
         <ServicesSection />
         <ProcessSection />
-        <ProjectsSection />
+        {showProjects && <ProjectsSection />}
         <AboutSection />
         <WhySection />
         <ContactSection />
