@@ -1,50 +1,21 @@
-import { useState } from "react";
 import { projects } from "../data/projects";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
-import { SectionHeading } from "../components/SectionHeading";
 import { ProjectCard } from "../components/ProjectCard";
-import { ProjectDialog } from "../components/ProjectDialog";
-
-const copy = {
-  en: {
-    eyebrow: "Selected work",
-    title: "Different needs. Working solutions.",
-    description: "A closer look at systems, apps and websites I've built — from the interface to the processes behind it.",
-    more: "More ways I put technology to work",
-  },
-  he: {
-    eyebrow: "עבודות נבחרות",
-    title: "צרכים שונים. פתרונות שנבנו בפועל.",
-    description: "הצצה למערכות, אפליקציות ואתרים שפיתחתי — מהממשק ועד לתהליכים שמאחוריו.",
-    more: "עוד עבודות, עוד יכולות",
-  },
-};
 
 export function ProjectsSection() {
   const { lang } = useLanguage();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const t = copy[lang];
   const visible = projects[lang].filter((project) => project.published);
-  const selected = visible.find((project) => project.id === selectedId);
-
   return (
-    <section id="projects" className="border-t border-line-soft bg-paper-raised/50 py-20 sm:py-24">
+    <section id="projects" className="bg-paper-raised/50 py-10 sm:py-16">
       <Container>
-        <SectionHeading eyebrow={t.eyebrow} title={t.title} description={t.description} />
-        <div className="mt-10 flex flex-col gap-6">
-          {visible.filter((project) => project.featured).map((project) => (
-            <ProjectCard key={project.id} project={project} onOpen={setSelectedId} />
-          ))}
-        </div>
-        <h3 className="mb-6 mt-12 font-display text-lg font-semibold text-ink">{t.more}</h3>
-        <div className="grid gap-6 md:grid-cols-2">
-          {visible.filter((project) => !project.featured).map((project) => (
-            <ProjectCard key={project.id} project={project} onOpen={setSelectedId} />
-          ))}
+        <p className="text-xs font-semibold text-accent">{lang === "he" ? "תיק עבודות" : "Portfolio"}</p>
+        <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">{lang === "he" ? "עבודות נבחרות" : "Selected work"}</h1>
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-soft">{lang === "he" ? "מערכות, אפליקציות ואתרים שפיתחתי. בחרו פרויקט להצצה בתהליך ובתוצאה." : "Systems, apps and websites I've built. Explore a project to see the work behind it."}</p>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((project) => <ProjectCard key={project.id} project={project} />)}
         </div>
       </Container>
-      <ProjectDialog project={selected} onClose={() => setSelectedId(null)} />
     </section>
   );
 }

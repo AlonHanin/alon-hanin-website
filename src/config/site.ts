@@ -1,4 +1,4 @@
-import type { Localized } from "../types";
+import type { Localized } from "../types/index.ts";
 
 // Controls both the selected work section and its navigation links.
 export const showProjects = true;

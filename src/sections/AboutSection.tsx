@@ -7,13 +7,13 @@ export function AboutSection() {
   const t = about[lang];
 
   return (
-    <section id="about" className="border-y border-line-soft bg-paper-raised/60 py-20 sm:py-28">
-      <Container className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+    <section id="about" className="border-y border-line-soft bg-paper-raised/60 py-9 sm:py-14">
+      <Container className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div>
           <span className="mb-3 block font-body text-xs font-semibold tracking-[0.14em] text-accent">
             {t.eyebrow}
           </span>
-          <h2 className="text-balance font-display text-3xl font-bold leading-[1.2] text-ink sm:text-4xl">
+          <h2 className="text-balance font-display text-2xl font-bold leading-[1.2] text-ink sm:text-3xl">
             {t.headline}
           </h2>
           <div className="mt-6 flex flex-col gap-4">

@@ -5,11 +5,6 @@ export type Lang = "en" | "he";
 /** A value that differs by language. */
 export type Localized<T> = Record<Lang, T>;
 
-export interface NavItem {
-  id: string;
-  label: string;
-}
-
 export interface Service {
   id: string;
   title: string;

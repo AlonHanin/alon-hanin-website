@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line-soft">
-      <Container className="flex flex-col items-center gap-6 py-10 sm:flex-row sm:justify-between">
+      <Container className="flex flex-col items-center gap-4 py-6 sm:flex-row sm:justify-between">
         <div className="text-center sm:text-start">
           <p className="font-display text-base font-bold text-ink">
             {brand.name}

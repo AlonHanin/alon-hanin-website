@@ -1,4 +1,4 @@
-import type { Localized, Project } from "../types";
+import type { Localized, Project } from "../types/index.ts";
 
 // Keep IDs aligned between languages. Set published to false to hide one project.
 // Only sanitized, selected images from public/projects belong here.

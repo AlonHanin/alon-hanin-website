@@ -1,29 +1,10 @@
-import type { Localized, NavItem } from "../types";
+import type { Localized } from "../types";
 
 /**
  * Free-text copy for every section that isn't a repeating list
  * (services / projects / process live in their own files next to this one).
  * Each field is a { en, he } pair — edit the language you need.
  */
-
-export const nav: Localized<NavItem[]> = {
-  en: [
-    { id: "home", label: "Home" },
-    { id: "services", label: "Services" },
-    { id: "how-i-work", label: "How I Work" },
-    { id: "projects", label: "Selected work" },
-    { id: "about", label: "About" },
-    { id: "contact", label: "Contact" },
-  ],
-  he: [
-    { id: "home", label: "בית" },
-    { id: "services", label: "שירותים" },
-    { id: "how-i-work", label: "איך זה עובד" },
-    { id: "projects", label: "עבודות נבחרות" },
-    { id: "about", label: "עליי" },
-    { id: "contact", label: "יצירת קשר" },
-  ],
-};
 
 export const hero = {
   en: {

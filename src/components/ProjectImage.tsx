@@ -8,9 +8,15 @@ const backgrounds: Record<Project["visual"], string> = {
   cats: "bg-[#faf3ee]",
 };
 
-export function ProjectImage({ project, expanded = false }: { project: Project; expanded?: boolean }) {
+export function ProjectImage({ project, expanded = false, compact = false }: { project: Project; expanded?: boolean; compact?: boolean }) {
   const image = project.images[0];
   if (!image) return null;
+
+  if (compact) return (
+    <div className={`flex min-h-36 items-center justify-center overflow-hidden p-2 sm:h-44 sm:p-4 ${backgrounds[project.visual]}`}>
+      <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" className="max-h-32 w-full object-contain sm:max-h-36" />
+    </div>
+  );
 
   return (
     <figure className={`flex h-full min-w-0 flex-col ${backgrounds[project.visual]}`}>

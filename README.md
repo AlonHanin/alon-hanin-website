@@ -1,133 +1,80 @@
 # Alon Hanin — Business Systems & Digital Solutions
 
-A bilingual (English default / Hebrew RTL) one-page business site built with
-React + Vite + TypeScript + Tailwind CSS, ready to deploy on Cloudflare Pages.
+A bilingual React + Vite + TypeScript website, deployed to Cloudflare Pages.
+English is the default language; Hebrew uses RTL. Language selection persists
+between pages.
 
-## Local development
+## Pages
+
+| URL | Content |
+| --- | --- |
+| `/` | Short homepage: introduction, three service summaries, WineOps and A.P previews, contact invitation |
+| `/services/` | Services, expandable details, three-stage process and common questions |
+| `/work/` | Compact catalog of all published projects |
+| `/work/<project-id>/` | Project images, scope, contribution and contact link |
+| `/contact/` | Contact options followed by background and qualifications |
+
+Navigation uses normal links. The browser handles back/forward, opening new tabs
+and restoring scroll positions. Mobile has a fixed bottom navigation with space
+reserved so it does not cover the end of the page; desktop has header navigation.
+
+The Vite `page-entries` plugin generates an HTML entry for each route, plus
+`404.html`, from the built index. Each entry loads the shared React application,
+which renders the matching page. This is client rendering with separate HTML
+entries, not server rendering. Direct links and refreshes work on Cloudflare
+Pages without a catch-all redirect.
+
+Legacy homepage links such as `/#projects`, `/#services`, `/#how-i-work` and
+`/#contact` redirect to their new page in `src/main.tsx`.
+
+## Development
 
 ```bash
 npm install
 npm run dev
-```
-
-The site runs at the URL printed in the terminal (usually `http://localhost:5173`).
-
-## Production build
-
-```bash
 npm run build
-```
-
-Output goes to `dist/`. Preview it locally with:
-
-```bash
 npm run preview
+npm run lint
 ```
 
-## Deploying to Cloudflare Pages
+Build output is `dist/`. Vite preview is useful for checking the generated page
+entries. Cloudflare Pages serves the generated `404.html` for unknown paths;
+the local Vite development server may use its own HTML fallback.
 
-1. Push this repo to GitHub.
-2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**, select the repo.
-3. Build settings:
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-   - **Framework preset**: Vite (or None + the manual settings above)
-4. Save and deploy. Every push to the main branch builds and deploys a new version automatically.
+## Editing content
 
-### Custom domain
-
-Pages project → **Custom domains** → **Set up a custom domain**, enter the domain
-and follow the prompts (if the domain is already managed on Cloudflare, DNS updates automatically).
-
-## Project structure
-
-```text
-src/
-  components/     Reusable UI pieces (button, nav, footer...)
-  sections/       The homepage sections (Hero, Services, Projects...)
-  data/           All copy, in both languages — this is what you edit
-  config/         Configuration: brand name, contact details
-  i18n/           Language context (English/Hebrew toggle + persistence)
-  types/          Shared TypeScript types
-  App.tsx         Assembles every section into one page
-```
-
-## Where to edit content
-
-Every piece of content lives in `src/data/` and `src/config/` — no need to touch
-React components. Each string is a `{ en, he }` pair; edit whichever language you need.
-
-| File | What's in it |
+| File | Purpose |
 | --- | --- |
-| `src/data/siteContent.ts` | Hero headline, "the business grew" section, "how I work", "about", contact copy, nav labels, language-toggle label |
-| `src/data/services.ts` | The 4 core services + the integrations note |
-| `src/data/projects.ts` | **Add a new project here** — push another `{ en: {...}, he: {...} }` pair with a matching `id` and `status` |
-| `src/data/process.ts` | The 5 process steps |
-| `src/data/differentiators.ts` | The "why work with me" reasons |
-| `src/config/site.ts` | Brand name and short descriptor, per language |
-| `src/config/contact.ts` | **WhatsApp number, email, LinkedIn, GitHub** — see below |
+| `src/config/routes.ts` | Navigation, paths and page titles; project routes follow project data |
+| `src/pages/HomePage.tsx` | Short homepage summaries and the two featured project IDs |
+| `src/pages/ServicesPage.tsx` | Service audience summaries, process and FAQ |
+| `src/pages/ContactPage.tsx` | Contact page introduction |
+| `src/pages/ProjectPage.tsx` | Shared detail page for every project |
+| `src/data/siteContent.ts` | Hero headline, about content, contact labels and shared section copy |
+| `src/data/services.ts` | Detailed service descriptions and examples |
+| `src/data/projects.ts` | Project text, status, sanitized images and publication settings |
+| `src/config/site.ts` | Brand details and the global `showProjects` switch |
+| `src/config/contact.ts` | WhatsApp, email and social links |
 
-### Setting up WhatsApp / Email
+Keep project IDs aligned between English and Hebrew. Set `published: false` in
+both languages to hide a project from the catalog and generated routes. Only
+projects marked `in-development` show a status badge. The original long-form
+section components and their content remain available for future use.
 
-In `src/config/contact.ts`:
+## Project images
 
-```ts
-export const contact = {
-  whatsapp: "972501234567", // digits only, international format, no "+"
-  email: "you@example.com",
-  linkedin: "https://www.linkedin.com/in/your-profile",
-  github: "",
-};
-```
+Web-ready images live in `public/projects/`. The original `pic/` folder is
+excluded from Git because source screenshots can contain identifying details.
+Only reviewed, sanitized images should be copied into `public/`.
+Editing provenance is recorded in `output/imagegen/projects-prompt.md`.
 
-This is currently filled with your real contact details (email, phone, LinkedIn)
-from the CV you shared. If you'd rather use a separate business number for
-WhatsApp, update it here. Leaving any field as `""` automatically hides that
-button on the site — it's always safe to leave a field empty.
+## Deployment
 
-## Language switching (i18n)
+Cloudflare Pages is connected to GitHub:
 
-- The site defaults to **English** on first visit; a toggle in the nav bar
-  (and mobile menu) switches to **Hebrew**, updating `<html lang>` and
-  `<html dir>` (`ltr`/`rtl`) on the real document element — not a CSS trick.
-- The choice is remembered in `localStorage`, so a returning visitor keeps
-  their language.
-- Every content file in `src/data/` exports both languages side by side
-  (`{ en: [...], he: [...] }`), read via the `useLanguage()` hook
-  (`src/i18n/LanguageContext.tsx`). Adding a third language later means adding
-  a key next to `en`/`he` in each data file and in the `Lang` type
-  (`src/types/index.ts`) — no structural rewrite needed.
+- Build command: `npm run build`
+- Output directory: `dist`
+- Production branch: `main`
 
-## Key design decisions
-
-- **Typography**: [Heebo](https://fonts.google.com/specimen/Heebo) for both
-  headings and body text — a single modern, technical typeface with excellent,
-  purpose-built Hebrew glyphs (not a Latin font awkwardly repurposed for RTL).
-  [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) is used
-  for small technical labels (tech-stack tags, the contact email).
-- **Color**: near-black ink, white paper, and a single blue family as the
-  accent — from deep navy through a vivid primary blue to a light cyan-blue
-  highlight (`--color-accent`, `--color-accent-deep`, `--color-accent-light`,
-  `--color-accent-2` in `src/index.css`). No secondary hues — a deliberately
-  monochrome-blue accent for a premium, technology-forward feel.
-- **Hero**: a dark navy hero with a soft blue radial glow and a fine grid
-  texture, opening the page with the "tech" register before the rest settles
-  into white. The visual shows scattered "Excel / WhatsApp / Email / Notes"
-  chips settling into one organized system panel — a direct illustration of
-  the core pitch, not generic decoration.
-- **Real RTL**: `dir` and `lang` are set on the `<html>` element itself at
-  runtime (`src/i18n/LanguageContext.tsx`), not faked with CSS. Tailwind and
-  flex/grid layouts flip automatically as a result.
-- **No unnecessary libraries**: no React Router (not needed for one page), no
-  external animation library — every animation is plain CSS and respects
-  `prefers-reduced-motion`.
-
-## Not implemented yet (on purpose)
-
-Kept simple for a first version, easy to extend later:
-
-- Per-project case-study pages
-- Blog / articles
-- A contact form with a backend (currently WhatsApp + direct email)
-- Analytics
-- Privacy / terms pages
+Push completed changes to `main` to trigger the connected deployment. A successful
+Git push does not itself confirm that Cloudflare finished deploying.

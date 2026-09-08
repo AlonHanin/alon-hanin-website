@@ -16,22 +16,22 @@ export function ContactSection() {
   const t = contactSection[lang];
 
   return (
-    <section id="contact" className="py-20 sm:py-28">
+    <section id="contact" className="py-8 sm:py-12">
       <Container>
-        <div className="relative overflow-hidden rounded-2xl border border-line bg-ink px-8 py-14 text-center sm:px-16">
+        <div className="relative overflow-hidden rounded-2xl border border-line bg-ink px-5 py-7 text-center sm:px-12 sm:py-10">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,rgba(47,111,237,0.25),transparent)]"
           />
           <div className="relative">
-            <h2 className="text-balance font-display text-3xl font-bold leading-[1.2] text-white sm:text-4xl">
+            <h2 className="text-balance font-display text-2xl font-bold leading-[1.2] text-white sm:text-3xl">
               {t.headline}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-[1.05rem] leading-relaxed text-white/70">
               {t.sub}
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               {hasWhatsapp && (
                 <CTAButton
                   href={whatsappHref}
