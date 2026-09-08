@@ -1,122 +1,120 @@
 import type { Localized, Project } from "../types";
 
-/**
- * Add a new project by pushing another object into each language's array —
- * the Projects section renders whatever is here, in order. Keep the same
- * `id` and `status` between the `en` and `he` versions of a project.
- */
+// Keep IDs aligned between languages. Set published to false to hide one project.
+// Only sanitized, selected images from public/projects belong here.
 export const projects: Localized<Project[]> = {
-  en: [
-    {
-      id: "wineops",
-      name: "WineOps",
-      category: "Winery management SaaS platform",
-      status: "in-development",
-      problem:
-        "Wineries manage the production lifecycle — from vineyard to bottle — across spreadsheets and separate files, with no structured tracking of batches, tanks and barrels.",
-      solution:
-        "A dedicated platform that centralizes the entire production process in one place, with full, data-driven traceability along the whole production chain.",
-      capabilities: [
-        "Vineyards & harvests",
-        "Wine batches & tanks",
-        "Barrel management",
-        "Lab tests",
-        "Finished goods",
-        "Work orders",
-        "Users & roles",
-        "Traceability",
-      ],
-      stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
-    },
-    {
-      id: "think-green",
-      name: "Think Green",
-      category: "Academic mobile app — selected Top 5 project",
-      status: "academic",
-      problem:
-        "Build a tool that encourages and rewards environmentally-friendly behavior, with content management and approval workflows on the admin side.",
-      solution:
-        "A full mobile app with environmental reports, challenges and a rewards system, including an admin side for approval and moderation.",
-      capabilities: [
-        "Sign-up & login",
-        "User profile",
-        "Environmental reports",
-        "Admin approval workflow",
-        "Rewards & challenges",
-        "Admin panel",
-      ],
-      stack: ["Flutter", "Dart", "PHP", "MySQL"],
-    },
-    {
-      id: "custom-business-system",
-      name: "Custom Business Management System",
-      category: "Internal system",
-      status: "active",
-      problem:
-        "A business ran its day-to-day operations across several separate spreadsheets, with no single picture and no organized history.",
-      solution:
-        "A lightweight internal system that replaces the spreadsheets with one structured workflow, fully matched to how the team already works.",
-      capabilities: ["Workflow management", "Status tracking", "Basic reporting"],
-      stack: ["React", "TypeScript", "Supabase"],
-    },
-  ],
   he: [
     {
-      id: "wineops",
-      name: "WineOps",
-      category: "מערכת SaaS לניהול יקבים",
-      status: "in-development",
-      problem:
-        "יקבים מנהלים את מחזור החיים של הייצור — מהכרם ועד הבקבוק — דרך גיליונות וקבצים נפרדים, בלי מעקב מסודר אחר אצוות, מכלים וחביות.",
-      solution:
-        "פלטפורמה ייעודית שמרכזת את כל תהליך הייצור במקום אחד, עם מעקב מלא ומבוסס נתונים לאורך כל שרשרת הייצור.",
-      capabilities: [
-        "כרמים ובצירים",
-        "אצוות יין ומכלים",
-        "ניהול חביות",
-        "בדיקות מעבדה",
-        "מוצר מוגמר",
-        "הזמנות עבודה",
-        "משתמשים והרשאות",
-        "מעקביות (Traceability)",
-      ],
+      id: "wineops", name: "WineOps", category: "SaaS לניהול יקבים",
+      visual: "wine", featured: true, published: true, status: "in-development",
+      headline: "מהכרם ועד הבקבוק. מערכת אחת לניהול היקב.",
+      problem: "ניהול יקב מחבר בין ייצור, מלאי, בדיקות ועבודת צוות — תהליכים שצריכים לדבר זה עם זה.",
+      solution: "מערכת SaaS לניהול תהליכי היקב, עם מעקב ייצור, מלאי והרשאות צוות. מוצר עצמאי שנמצא בפיתוח.",
+      scope: "פיתוח עצמאי של המוצר: תכנון המערכת, ממשק המשתמש, הלוגיקה העסקית ומסד הנתונים.",
+      capabilities: ["תהליכי ייצור", "מלאי ומעקב", "משתמשים והרשאות"],
       stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
+      images: [{ src: "/projects/wineops.jpg", alt: "מסך הפתיחה של WineOps בתצוגת מובייל", caption: "מסך פתיחה · מוצר בפיתוח", width: 461, height: 871 }],
     },
     {
-      id: "think-green",
-      name: "Think Green",
-      category: "אפליקציה אקדמית — נבחרה ל-Top 5 בפרויקטים",
-      status: "academic",
-      problem:
-        "יצירת כלי שמעודד ומתגמל התנהגות סביבתית, עם ניהול תוכן ואישורים מצד גורם מנהל.",
-      solution:
-        "אפליקציית מובייל מלאה עם דיווחים סביבתיים, אתגרים ומערכת תגמול, כולל צד ניהול לאישור ובקרה.",
-      capabilities: [
-        "הרשמה והתחברות",
-        "פרופיל משתמש",
-        "דיווחים סביבתיים",
-        "תהליך אישור ניהולי",
-        "תגמולים ואתגרים",
-        "ממשק ניהול",
-      ],
+      id: "ap", name: "א.פ", category: "מערכת ניהול ואחזקת מבנים",
+      visual: "property", featured: true, published: true, status: "active",
+      headline: "בניינים, תקציבים ותשלומים. במקום אחד.",
+      problem: "ניהול של כמה בניינים דורש מעקב נפרד אחר תקציבים, דירות, חיובים ותשלומים.",
+      solution: "מערכת לניהול ואחזקת מבנים שמרכזת תקציב שנתי, מידע על דירות ומעקב חיובים ותשלומים, עם אפשרויות ייצוא לדוחות.",
+      scope: "פיתוח מערכת ניהול עם מסכי עבודה לפי בניין ושנת תקציב, טבלאות תקציב וייצוא מידע.",
+      capabilities: ["תקציב שנתי", "חיובים ותשלומים", "ייצוא דוחות"],
+      stack: [],
+      images: [{ src: "/projects/ap-budget.jpg", alt: "תקריב ערוך של טבלת התקציב השנתי במערכת א.פ", caption: "תקריב ערוך · תקציב שנתי", width: 1692, height: 930 }],
+    },
+    {
+      id: "think-green", name: "ThinkGreen", category: "אפליקציית מובייל ומערכת שרת",
+      visual: "green", featured: true, published: true, status: "active",
+      headline: "פעולות ירוקות שהופכות לאתגרים ותגמולים.",
+      problem: "חיבור בין דיווח על פעולה סביבתית, אישור שלה וצבירת נקודות דורש חוויית משתמש ומנגנון ניהול שעובדים יחד.",
+      solution: "אפליקציה עם דיווחי פעילות, אתגרים ותגמולים, לצד ממשק ניהול לאישור ובקרה — מחוברת לשרת ולמסד נתונים.",
+      scope: "פיתוח האפליקציה ותכנון הארכיטקטורה, כולל APIs, לוגיקת שרת, אחסון ומסד נתוני SQL.",
+      capabilities: ["אתגרים ותגמולים", "אישור דיווחים", "אפליקציה ושרת"],
       stack: ["Flutter", "Dart", "PHP", "MySQL"],
+      images: [{ src: "/projects/thinkgreen.jpg", alt: "תצוגה ערוכה של מסכי האתגרים והתגמולים ב־ThinkGreen", caption: "תצוגה ערוכה · אתגרים ותגמולים", width: 1375, height: 1144 }],
     },
     {
-      id: "custom-business-system",
-      name: "מערכת ניהול עסקית מותאמת אישית",
-      category: "מערכת פנימית",
-      status: "active",
-      problem:
-        "עסק שניהל את התפעול השוטף שלו דרך כמה גיליונות אקסל נפרדים, ללא תמונת מצב אחת וללא היסטוריה מסודרת.",
-      solution:
-        "מערכת פנימית קלה שמחליפה את הגיליונות בתהליך עבודה מובנה אחד, בהתאמה מלאה לאופן שבו הצוות כבר עובד.",
-      capabilities: ["ניהול תהליך עבודה", "מעקב סטטוסים", "דוחות בסיסיים"],
-      stack: ["React", "TypeScript", "Supabase"],
+      id: "bi", name: "BI Dashboard", category: "ניתוח נתונים ודשבורדים",
+      visual: "bi", featured: false, published: true, status: "active",
+      headline: "מנתונים לתמונה שאפשר להבין.",
+      problem: "כדי להבין נתוני משחקים, צריך לחבר בין דירוגים, ביקורות, זמן משחק ומחיר ולבחון אותם יחד.",
+      solution: "דשבורד לניתוח נתוני משחקים, עם מדדים, השוואות וגרפים שמאפשרים לחקור מגמות וקשרים בנתונים.",
+      scope: "בניית מודל הנתונים, בנייה והטמעה של דשבורדים והצגת מדדים והשוואות.",
+      capabilities: ["מודל נתונים", "מדדים והשוואות", "המחשה חזותית"],
+      stack: [],
+      images: [{ src: "/projects/bi-dashboard.jpg", alt: "דשבורד המציג השוואות דירוגים, מחירים וזמני משחק", caption: "דשבורד לניתוח נתוני משחקים", width: 843, height: 419 }],
+    },
+    {
+      id: "cat4u", name: "Cat4U", category: "אתר רב־עמודי עם טפסים",
+      visual: "cats", featured: false, published: true, status: "active",
+      headline: "מחיפוש חבר חדש ועד שליחת פנייה.",
+      problem: "אתר אימוץ צריך להנגיש מידע על חתולים, אירועים והתנדבות, ולאפשר למבקרים להשאיר פנייה.",
+      solution: "אתר לאימוץ חתולים עם שבעה עמודים, מידע על אימוץ והתנדבות וטפסים שהפניות מהם נשמרות בשרת.",
+      scope: "בניית אתר רב־עמודי, ממשקי טפסים וחיבור לשמירת הפניות בצד השרת.",
+      capabilities: ["שבעה עמודים", "טפסי פנייה", "שמירה בשרת"],
+      stack: [],
+      images: [{ src: "/projects/cat4u.jpg", alt: "עמוד הבית של Cat4U עם קישורים לאימוץ, אירועים והתנדבות", caption: "עמוד הבית · אתר לאימוץ חתולים", width: 1530, height: 792 }],
     },
   ],
-};
-
-export const statusLabel: Localized<Record<Project["status"], string>> = {
-  en: { active: "Active", "in-development": "In development", academic: "Academic" },
-  he: { active: "פעיל", "in-development": "בפיתוח", academic: "אקדמי" },
+  en: [
+    {
+      id: "wineops", name: "WineOps", category: "Winery management SaaS",
+      visual: "wine", featured: true, published: true, status: "in-development",
+      headline: "From vineyard to bottle. One connected system.",
+      problem: "Running a winery connects production, inventory, lab work and teamwork — processes that need to work together.",
+      solution: "A SaaS platform for winery operations, bringing production tracking, inventory and team permissions together. An independent product currently in development.",
+      scope: "Sole development of the product: system design, user interface, business logic and database.",
+      capabilities: ["Production workflows", "Inventory & tracking", "Users & roles"],
+      stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
+      images: [{ src: "/projects/wineops.jpg", alt: "WineOps welcome screen on mobile", caption: "Welcome screen · product in development", width: 461, height: 871 }],
+    },
+    {
+      id: "ap", name: "A.P", category: "Property management system",
+      visual: "property", featured: true, published: true, status: "active",
+      headline: "Buildings, budgets and payments. All in one place.",
+      problem: "Managing several buildings means keeping track of separate budgets, apartments, charges and payments.",
+      solution: "A property management system combining annual budgets, apartment information and payment tracking, with report export options.",
+      scope: "Development of building and budget-year workflows, annual budget tables and data export.",
+      capabilities: ["Annual budgets", "Charges & payments", "Report exports"],
+      stack: [],
+      images: [{ src: "/projects/ap-budget.jpg", alt: "Edited close-up of the annual budget table in A.P", caption: "Edited close-up · annual budget", width: 1692, height: 930 }],
+    },
+    {
+      id: "think-green", name: "ThinkGreen", category: "Mobile app & backend",
+      visual: "green", featured: true, published: true, status: "active",
+      headline: "Turning green actions into challenges and rewards.",
+      problem: "Connecting activity reports, approval and points requires a user experience and an administration workflow that work together.",
+      solution: "A mobile app with activity reports, challenges and rewards, plus administration tools for review and approval — connected to a server and database.",
+      scope: "App development and architecture, including APIs, server logic, hosting and a SQL database.",
+      capabilities: ["Challenges & rewards", "Report approval", "App & backend"],
+      stack: ["Flutter", "Dart", "PHP", "MySQL"],
+      images: [{ src: "/projects/thinkgreen.jpg", alt: "Edited presentation of ThinkGreen challenge and reward screens", caption: "Edited presentation · challenges & rewards", width: 1375, height: 1144 }],
+    },
+    {
+      id: "bi", name: "BI Dashboard", category: "Data analysis & dashboards",
+      visual: "bi", featured: false, published: true, status: "active",
+      headline: "Making data easier to understand.",
+      problem: "Understanding gaming data means connecting ratings, reviews, playtime and pricing, and examining them together.",
+      solution: "A gaming analytics dashboard with metrics, comparisons and charts for exploring patterns and relationships in the data.",
+      scope: "Data modeling, dashboard development and implementation, metrics and comparative visualizations.",
+      capabilities: ["Data modeling", "Metrics & comparisons", "Visualization"],
+      stack: [],
+      images: [{ src: "/projects/bi-dashboard.jpg", alt: "Dashboard comparing game ratings, prices and playtime", caption: "Gaming analytics dashboard", width: 843, height: 419 }],
+    },
+    {
+      id: "cat4u", name: "Cat4U", category: "Multi-page website & forms",
+      visual: "cats", featured: false, published: true, status: "active",
+      headline: "From finding a new friend to getting in touch.",
+      problem: "An adoption website needs to make cats, events and volunteering information accessible and let visitors send an inquiry.",
+      solution: "A seven-page cat adoption website with adoption and volunteering information and forms that save submissions on the server.",
+      scope: "Multi-page website development, form interfaces and server-side submission storage.",
+      capabilities: ["Seven pages", "Inquiry forms", "Server-side storage"],
+      stack: [],
+      images: [{ src: "/projects/cat4u.jpg", alt: "Cat4U homepage linking to adoption, events and volunteering", caption: "Homepage · cat adoption website", width: 1530, height: 792 }],
+    },
+  ],
 };

@@ -29,6 +29,12 @@ export interface Project {
   solution: string;
   capabilities: string[];
   stack: string[];
+  visual: "property" | "green" | "bi" | "cats" | "wine";
+  featured: boolean;
+  published: boolean;
+  headline: string;
+  scope: string;
+  images: { src: string; alt: string; caption: string; width: number; height: number }[];
 }
 
 export interface ProcessStep {

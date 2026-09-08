@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Original portfolio screenshots may contain identifying information.
+/pic/
+/PIC/
+/tmp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

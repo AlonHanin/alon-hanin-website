@@ -1,7 +1,7 @@
 import type { Localized } from "../types";
 
-// Set to true to restore both the projects section and its navigation links.
-export const showProjects = false;
+// Controls both the selected work section and its navigation links.
+export const showProjects = true;
 
 /**
  * Core brand configuration.

@@ -18,8 +18,8 @@ function App() {
         <HeroSection />
         <PainPointSection />
         <ServicesSection />
-        <ProcessSection />
         {showProjects && <ProjectsSection />}
+        <ProcessSection />
         <AboutSection />
         <WhySection />
         <ContactSection />
