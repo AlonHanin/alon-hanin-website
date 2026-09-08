@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Frank Ruhl Libre", "Times New Roman", serif;
+  --font-body: "Assistant", "Segoe UI", system-ui, sans-serif;
+
+  --color-paper: #efede7;
+  --color-paper-raised: #fbfaf8;
+  --color-ink: #221b17;
+  --color-ink-soft: #4a4038;
+  --color-muted: #8a8078;
+  --color-line: #ddd8cd;
+  --color-line-soft: #e7e3d9;
+  --color-wine: #6e1f3a;
+  --color-wine-deep: #4e1529;
+  --color-wine-soft: #8a3a56;
+  --color-brass: #a9834e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-wine);
+  color: var(--color-paper-raised);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-wine);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
