@@ -1,9 +1,4 @@
-/**
- * Instagram-style "story ring" avatar: a conic gradient in the site's blue
- * accent family, a thin paper-colored gap, then the photo itself with a
- * light color grade so its outdoor background sits with the site's cool
- * palette instead of clashing against it.
- */
+/** A closer crop of the hero portrait, legible at navigation sizes. */
 export function Avatar({ size = 34 }: { size?: number }) {
   return (
     <span
@@ -15,14 +10,13 @@ export function Avatar({ size = 34 }: { size?: number }) {
           "conic-gradient(from 210deg, var(--color-accent-2), var(--color-accent-light), var(--color-accent), var(--color-accent-deep), var(--color-accent-2))",
       }}
     >
-      <span className="flex h-full w-full items-center justify-center rounded-full bg-paper p-[2px]">
+      <span className="relative block h-full w-full overflow-hidden rounded-full border-2 border-paper bg-accent">
         <img
-          src="/avatar.jpg"
+          src="/alon-portrait.jpg"
           alt="Alon Hanin"
           width={size}
           height={size}
-          className="h-full w-full rounded-full object-cover"
-          style={{ filter: "saturate(0.82) contrast(1.06) brightness(0.99) hue-rotate(-8deg)" }}
+          className="absolute left-0 top-0 h-full w-full origin-[47%_10%] scale-[2.3] object-cover"
         />
       </span>
     </span>
