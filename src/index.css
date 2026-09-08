@@ -1,21 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Frank Ruhl Libre", "Times New Roman", serif;
-  --font-body: "Assistant", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Heebo", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Heebo", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", monospace;
 
-  --color-paper: #efede7;
-  --color-paper-raised: #fbfaf8;
-  --color-ink: #221b17;
-  --color-ink-soft: #4a4038;
-  --color-muted: #8a8078;
-  --color-line: #ddd8cd;
-  --color-line-soft: #e7e3d9;
-  --color-wine: #6e1f3a;
-  --color-wine-deep: #4e1529;
-  --color-wine-soft: #8a3a56;
-  --color-brass: #a9834e;
+  /* Neutrals — near-black ink with a cool blue undertone, true white paper */
+  --color-paper: #ffffff;
+  --color-paper-raised: #f6f8fc;
+  --color-ink: #0a0e1a;
+  --color-ink-soft: #48506c;
+  --color-muted: #7c839c;
+  --color-line: #e2e6f0;
+  --color-line-soft: #edf0f7;
+
+  /* Accent — a single blue family, every shade of it */
+  --color-navy: #0b1730;
+  --color-accent: #2f6fed;
+  --color-accent-deep: #17419e;
+  --color-accent-light: #7cadff;
+  --color-accent-2: #38d0e0;
 }
 
 html {
@@ -50,12 +55,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-wine);
-  color: var(--color-paper-raised);
+  background: var(--color-accent);
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-wine);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }

@@ -1,5 +1,10 @@
 import type { LucideIcon } from "lucide-react";
 
+export type Lang = "en" | "he";
+
+/** A value that differs by language. */
+export type Localized<T> = Record<Lang, T>;
+
 export interface NavItem {
   id: string;
   label: string;
@@ -13,7 +18,7 @@ export interface Service {
   examples: string[];
 }
 
-export type ProjectStatus = "פעיל" | "בפיתוח" | "אקדמי";
+export type ProjectStatus = "active" | "in-development" | "academic";
 
 export interface Project {
   id: string;

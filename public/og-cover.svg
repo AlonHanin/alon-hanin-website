@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#EFEDE7"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#DEDACF" stroke-width="2"/>
-  <text x="600" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="72" fill="#221B17" font-weight="700">אלון חנין</text>
-  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#6E1F3A">מערכות דיגיטליות לעסקים</text>
-  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#8A8078">מהאקסל למערכת שעובדת בשביל העסק שלך</text>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1849B8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0A0E1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0A0E1A"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="600" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="#FFFFFF" font-weight="700">Alon Hanin</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#5B8DEF">Digital Systems for Business</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#8FA0C7">From spreadsheets to a system that works for you</text>
 </svg>

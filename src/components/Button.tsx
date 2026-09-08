@@ -11,7 +11,7 @@ const base =
   "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-150 focus-visible:outline-2";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-wine text-paper-raised hover:bg-wine-deep",
+  primary: "bg-accent text-paper-raised hover:bg-accent-deep",
   secondary:
     "border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/[0.03]",
   ghost: "text-ink-soft hover:text-ink",

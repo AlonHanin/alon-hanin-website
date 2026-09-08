@@ -1,12 +1,22 @@
 import type { Project, ProjectStatus } from "../types";
+import { statusLabel } from "../data/projects";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const statusStyles: Record<ProjectStatus, string> = {
-  פעיל: "bg-brass/10 text-brass",
-  בפיתוח: "bg-wine/10 text-wine",
-  אקדמי: "bg-ink/[0.06] text-ink-soft",
+  active: "bg-accent-2/10 text-accent-2",
+  "in-development": "bg-accent/10 text-accent",
+  academic: "bg-ink/[0.06] text-ink-soft",
+};
+
+const fieldLabel = {
+  en: { problem: "Problem", solution: "Solution" },
+  he: { problem: "הבעיה", solution: "הפתרון" },
 };
 
 export function ProjectCard({ project }: { project: Project }) {
+  const { lang } = useLanguage();
+  const f = fieldLabel[lang];
+
   return (
     <article className="flex flex-col rounded-xl border border-line bg-paper-raised p-7">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -19,20 +29,20 @@ export function ProjectCard({ project }: { project: Project }) {
         <span
           className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${statusStyles[project.status]}`}
         >
-          {project.status}
+          {statusLabel[lang][project.status]}
         </span>
       </div>
 
       <dl className="mt-5 flex flex-col gap-4 text-[0.92rem] leading-relaxed">
         <div>
           <dt className="text-xs font-semibold tracking-wide text-muted">
-            הבעיה
+            {f.problem}
           </dt>
           <dd className="mt-1 text-ink-soft">{project.problem}</dd>
         </div>
         <div>
           <dt className="text-xs font-semibold tracking-wide text-muted">
-            הפתרון
+            {f.solution}
           </dt>
           <dd className="mt-1 text-ink-soft">{project.solution}</dd>
         </div>
@@ -49,7 +59,7 @@ export function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
 
-      <ul className="mt-5 flex flex-wrap gap-2 border-t border-line-soft pt-4">
+      <ul className="mt-5 flex flex-wrap gap-2 border-t border-line-soft pt-4 font-mono">
         {project.stack.map((s) => (
           <li
             key={s}

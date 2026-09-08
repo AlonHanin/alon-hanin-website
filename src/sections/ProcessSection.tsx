@@ -1,18 +1,23 @@
 import { howIWork } from "../data/siteContent";
 import { processSteps } from "../data/process";
+import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
 import { SectionHeading } from "../components/SectionHeading";
 
 export function ProcessSection() {
+  const { lang } = useLanguage();
+  const t = howIWork[lang];
+  const steps = processSteps[lang];
+
   return (
     <section id="how-i-work" className="border-y border-line-soft bg-paper-raised/60 py-20 sm:py-28">
       <Container>
-        <SectionHeading eyebrow={howIWork.eyebrow} title={howIWork.headline} />
+        <SectionHeading eyebrow={t.eyebrow} title={t.headline} />
 
         <ol className="relative mt-14 grid gap-10 sm:grid-cols-5 sm:gap-6">
-          {processSteps.map(({ step, title, description }, i) => (
+          {steps.map(({ step, title, description }, i) => (
             <li key={step} className="relative">
-              {i < processSteps.length - 1 && (
+              {i < steps.length - 1 && (
                 <span
                   aria-hidden
                   className="absolute top-5 hidden h-px w-full bg-[repeating-linear-gradient(90deg,var(--color-line)_0_6px,transparent_6px_11px)] sm:block"
@@ -32,8 +37,8 @@ export function ProcessSection() {
           ))}
         </ol>
 
-        <p className="mt-14 border-t border-line-soft pt-8 text-balance font-display text-xl font-medium leading-snug text-wine sm:text-2xl">
-          {howIWork.highlight}
+        <p className="mt-14 border-t border-line-soft pt-8 text-balance font-display text-xl font-medium leading-snug text-accent sm:text-2xl">
+          {t.highlight}
         </p>
       </Container>
     </section>
