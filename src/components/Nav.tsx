@@ -28,9 +28,9 @@ export function Nav() {
       <Container className="flex items-center justify-between py-3.5">
         <a
           href="#home"
-          className="flex items-center gap-2.5 font-display text-lg font-bold text-ink"
+          className="flex items-center gap-3 font-display text-xl font-bold text-ink"
         >
-          <Avatar size={34} />
+          <Avatar size={52} />
           <span>{site[lang].name}</span>
         </a>
 
