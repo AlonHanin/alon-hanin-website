@@ -1,5 +1,16 @@
 # Selected project images
 
+## September 2026 gallery update
+
+The current A.P, ThinkGreen and BI assets are numbered PNGs copied unchanged from
+the owner's prepared screenshots: `ap-1.png` through `ap-3.png`,
+`thinkgreen-1.png` through `thinkgreen-4.png`, and `bi-1.png` through `bi-2.png`.
+BI includes the supplied data model and dashboard. The older A.P, ThinkGreen and
+BI JPEGs below have been retired. The following prompts are historical provenance
+for the earlier presentation, not edits applied to the current numbered PNGs.
+
+## Earlier presentation
+
 Final web assets are in `public/projects/`. Original screenshots in `pic/` remain local and are excluded from Git.
 
 - `wineops.jpg`: original supplied WineOps welcome screen, JPEG encoding only. This is a product in development; on-screen numbers are not used as marketing performance claims.

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
+import { AccessibilityTools } from "./components/AccessibilityTools";
+import { AccessibilityPage } from "./pages/AccessibilityPage";
 import { Container } from "./components/Container";
 import { CTAButton } from "./components/Button";
 import { HomePage } from "./pages/HomePage";
@@ -28,6 +30,7 @@ function App() {
   else if (route?.key === "services") content = <ServicesPage />;
   else if (route?.key === "contact") content = <ContactPage />;
   else if (route?.key === "work") content = <ProjectsSection />;
+  else if (route?.key === "accessibility") content = <AccessibilityPage />;
   else if (project) content = <ProjectPage project={project} />;
   else content = (
     <Container className="py-16">
@@ -39,10 +42,11 @@ function App() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col bg-paper pb-20 md:pb-0">
+    <div id="site-shell" className="flex min-h-screen flex-col bg-paper pb-20 md:pb-0">
       <Nav />
       <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">{content}</main>
       <Footer />
+      <AccessibilityTools />
     </div>
   );
 }

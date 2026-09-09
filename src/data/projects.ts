@@ -1,4 +1,5 @@
 import type { Localized, Project } from "../types/index.ts";
+import { projectImages } from "./projectImages.ts";
 
 // Keep IDs aligned between languages. Set published to false to hide one project.
 // Only sanitized, selected images from public/projects belong here.
@@ -13,7 +14,7 @@ export const projects: Localized<Project[]> = {
       scope: "פיתוח עצמאי של המוצר: תכנון המערכת, ממשק המשתמש, הלוגיקה העסקית ומסד הנתונים.",
       capabilities: ["תהליכי ייצור", "מלאי ומעקב", "משתמשים והרשאות"],
       stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
-      images: [{ src: "/projects/wineops.jpg", alt: "מסך הפתיחה של WineOps בתצוגת מובייל", caption: "מסך פתיחה · מוצר בפיתוח", width: 461, height: 871 }],
+      images: projectImages.he.wineops,
     },
     {
       id: "ap", name: "א.פ", category: "מערכת ניהול ואחזקת מבנים",
@@ -24,7 +25,7 @@ export const projects: Localized<Project[]> = {
       scope: "פיתוח מערכת ניהול עם מסכי עבודה לפי בניין ושנת תקציב, טבלאות תקציב וייצוא מידע.",
       capabilities: ["תקציב שנתי", "חיובים ותשלומים", "ייצוא דוחות"],
       stack: [],
-      images: [{ src: "/projects/ap-budget.jpg", alt: "תקריב ערוך של טבלת התקציב השנתי במערכת א.פ", caption: "תקריב ערוך · תקציב שנתי", width: 1692, height: 930 }],
+      images: projectImages.he.ap,
     },
     {
       id: "think-green", name: "ThinkGreen", category: "אפליקציית מובייל ומערכת שרת",
@@ -35,7 +36,7 @@ export const projects: Localized<Project[]> = {
       scope: "פיתוח האפליקציה ותכנון הארכיטקטורה, כולל APIs, לוגיקת שרת, אחסון ומסד נתוני SQL.",
       capabilities: ["אתגרים ותגמולים", "אישור דיווחים", "אפליקציה ושרת"],
       stack: ["Flutter", "Dart", "PHP", "MySQL"],
-      images: [{ src: "/projects/thinkgreen.jpg", alt: "תצוגה ערוכה של מסכי האתגרים והתגמולים ב־ThinkGreen", caption: "תצוגה ערוכה · אתגרים ותגמולים", width: 1375, height: 1144 }],
+      images: projectImages.he.thinkgreen,
     },
     {
       id: "bi", name: "BI Dashboard", category: "ניתוח נתונים ודשבורדים",
@@ -46,7 +47,7 @@ export const projects: Localized<Project[]> = {
       scope: "בניית מודל הנתונים, בנייה והטמעה של דשבורדים והצגת מדדים והשוואות.",
       capabilities: ["מודל נתונים", "מדדים והשוואות", "המחשה חזותית"],
       stack: [],
-      images: [{ src: "/projects/bi-dashboard.jpg", alt: "דשבורד המציג השוואות דירוגים, מחירים וזמני משחק", caption: "דשבורד לניתוח נתוני משחקים", width: 843, height: 419 }],
+      images: projectImages.he.bi,
     },
     {
       id: "cat4u", name: "Cat4U", category: "אתר רב־עמודי עם טפסים",
@@ -57,7 +58,7 @@ export const projects: Localized<Project[]> = {
       scope: "בניית אתר רב־עמודי, ממשקי טפסים וחיבור לשמירת הפניות בצד השרת.",
       capabilities: ["שבעה עמודים", "טפסי פנייה", "שמירה בשרת"],
       stack: [],
-      images: [{ src: "/projects/cat4u.jpg", alt: "עמוד הבית של Cat4U עם קישורים לאימוץ, אירועים והתנדבות", caption: "עמוד הבית · אתר לאימוץ חתולים", width: 1530, height: 792 }],
+      images: projectImages.he.cat4u,
     },
   ],
   en: [
@@ -70,7 +71,7 @@ export const projects: Localized<Project[]> = {
       scope: "Sole development of the product: system design, user interface, business logic and database.",
       capabilities: ["Production workflows", "Inventory & tracking", "Users & roles"],
       stack: ["React", "TypeScript", "Supabase", "PostgreSQL"],
-      images: [{ src: "/projects/wineops.jpg", alt: "WineOps welcome screen on mobile", caption: "Welcome screen · product in development", width: 461, height: 871 }],
+      images: projectImages.en.wineops,
     },
     {
       id: "ap", name: "A.P", category: "Property management system",
@@ -81,7 +82,7 @@ export const projects: Localized<Project[]> = {
       scope: "Development of building and budget-year workflows, annual budget tables and data export.",
       capabilities: ["Annual budgets", "Charges & payments", "Report exports"],
       stack: [],
-      images: [{ src: "/projects/ap-budget.jpg", alt: "Edited close-up of the annual budget table in A.P", caption: "Edited close-up · annual budget", width: 1692, height: 930 }],
+      images: projectImages.en.ap,
     },
     {
       id: "think-green", name: "ThinkGreen", category: "Mobile app & backend",
@@ -92,7 +93,7 @@ export const projects: Localized<Project[]> = {
       scope: "App development and architecture, including APIs, server logic, hosting and a SQL database.",
       capabilities: ["Challenges & rewards", "Report approval", "App & backend"],
       stack: ["Flutter", "Dart", "PHP", "MySQL"],
-      images: [{ src: "/projects/thinkgreen.jpg", alt: "Edited presentation of ThinkGreen challenge and reward screens", caption: "Edited presentation · challenges & rewards", width: 1375, height: 1144 }],
+      images: projectImages.en.thinkgreen,
     },
     {
       id: "bi", name: "BI Dashboard", category: "Data analysis & dashboards",
@@ -103,7 +104,7 @@ export const projects: Localized<Project[]> = {
       scope: "Data modeling, dashboard development and implementation, metrics and comparative visualizations.",
       capabilities: ["Data modeling", "Metrics & comparisons", "Visualization"],
       stack: [],
-      images: [{ src: "/projects/bi-dashboard.jpg", alt: "Dashboard comparing game ratings, prices and playtime", caption: "Gaming analytics dashboard", width: 843, height: 419 }],
+      images: projectImages.en.bi,
     },
     {
       id: "cat4u", name: "Cat4U", category: "Multi-page website & forms",
@@ -114,7 +115,7 @@ export const projects: Localized<Project[]> = {
       scope: "Multi-page website development, form interfaces and server-side submission storage.",
       capabilities: ["Seven pages", "Inquiry forms", "Server-side storage"],
       stack: [],
-      images: [{ src: "/projects/cat4u.jpg", alt: "Cat4U homepage linking to adoption, events and volunteering", caption: "Homepage · cat adoption website", width: 1530, height: 792 }],
+      images: projectImages.en.cat4u,
     },
   ],
 };

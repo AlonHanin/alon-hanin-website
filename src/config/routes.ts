@@ -10,6 +10,7 @@ export const navigation = [
 ];
 
 export const pageRoutes = [
+  { path: "/accessibility/", key: "accessibility", title: { he: "הצהרת נגישות", en: "Accessibility Statement" } },
   { path: "/", key: "home", title: { he: "מערכות דיגיטליות לעסקים", en: "Digital Systems for Business" } },
   { path: "/services/", key: "services", title: { he: "שירותי פיתוח לעסקים", en: "Development Services" } },
   ...(showProjects ? [{ path: "/work/", key: "work", title: { he: "עבודות נבחרות", en: "Selected Work" } }] : []),

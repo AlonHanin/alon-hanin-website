@@ -66,6 +66,10 @@ export function Footer() {
           © {year} {brand.name} · {brand.descriptor}
         </p>
       </Container>
+      <Container className="flex flex-wrap justify-center gap-x-6 gap-y-2 pb-6 text-sm">
+        <button id="accessibility-restore" type="button" onClick={() => window.dispatchEvent(new Event("open-accessibility"))} className="min-h-11 text-accent underline">{lang === "he" ? "אפשרויות נגישות" : "Accessibility options"}</button>
+        <a href="/accessibility/" className="inline-flex min-h-11 items-center text-accent underline">{lang === "he" ? "הצהרת נגישות" : "Accessibility statement"}</a>
+      </Container>
     </footer>
   );
 }

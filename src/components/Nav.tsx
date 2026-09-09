@@ -25,7 +25,7 @@ export function Nav() {
             <Avatar size={40} />
             <span>{site[lang].name}</span>
           </a>
-          <nav className="hidden items-center gap-5 lg:gap-8 md:flex" aria-label={label}>
+          <nav className="desktop-nav hidden items-center gap-5 lg:gap-8 md:flex" aria-label={label}>
             {navigation.map((item) => (
               <a key={item.key} href={item.path} aria-current={active(item.key) ? "page" : undefined}
                 className={`inline-flex min-h-11 items-center text-sm font-medium transition-colors hover:text-accent ${active(item.key) ? "text-accent" : "text-ink-soft"}`}>
@@ -39,7 +39,7 @@ export function Nav() {
           </button>
         </Container>
       </header>
-      <nav aria-label={label} className="fixed inset-x-0 bottom-0 z-50 flex justify-around border-t border-line bg-paper/95 px-2 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
+      <nav aria-label={label} className="mobile-nav fixed inset-x-0 bottom-0 z-50 flex justify-around border-t border-line bg-paper/95 px-2 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
         {navigation.map((item) => {
           const Icon = icons[item.key as keyof typeof icons];
           return (

@@ -18,8 +18,9 @@ const STORAGE_KEY = "site-lang";
 
 function readInitialLang(): Lang {
   if (typeof window === "undefined") return "en";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "he" ? "he" : "en";
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) === "he" ? "he" : "en";
+  } catch { return "en"; }
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

@@ -13,6 +13,7 @@ between pages.
 | `/work/` | Compact catalog of all published projects |
 | `/work/<project-id>/` | Project images, scope, contribution and contact link |
 | `/contact/` | Contact options followed by background and qualifications |
+| `/accessibility/` | Accessibility statement, remote-only service and contact details |
 
 Navigation uses normal links. The browser handles back/forward, opening new tabs
 and restoring scroll positions. Mobile has a fixed bottom navigation with space
@@ -53,6 +54,7 @@ the local Vite development server may use its own HTML fallback.
 | `src/data/siteContent.ts` | Hero headline, about content, contact labels and shared section copy |
 | `src/data/services.ts` | Detailed service descriptions and examples |
 | `src/data/projects.ts` | Project text, status, sanitized images and publication settings |
+| `src/data/projectImages.ts` | Ordered gallery images with bilingual descriptions and captions |
 | `src/config/site.ts` | Brand details and the global `showProjects` switch |
 | `src/config/contact.ts` | WhatsApp, email and social links |
 
@@ -67,6 +69,30 @@ Web-ready images live in `public/projects/`. The original `pic/` folder is
 excluded from Git because source screenshots can contain identifying details.
 Only reviewed, sanitized images should be copied into `public/`.
 Editing provenance is recorded in `output/imagegen/projects-prompt.md`.
+
+Project detail galleries support touch swipes, previous/next buttons and arrow,
+Home and End keys. They do not autoplay or link to the original image file.
+This presentation does not prevent screenshots or saving publicly served images.
+The current numbered PNGs are copied directly from the owner's prepared images:
+A.P 1–3, ThinkGreen 1–4 and BI 1–2. WineOps and Cat4U each have one image.
+
+## Accessibility
+
+Display preferences (text size, contrast, link underlines and reduced motion)
+are stored locally when browser storage is available. The launcher can be hidden
+with X and restored using Accessibility options in any footer. The dialog supports
+keyboard focus cycling and Escape. System reduced-motion preferences remain respected.
+
+Automated axe-core scans and keyboard/browser checks are development checks, not
+certification of legal compliance. The statement documents actual checks and known
+limitations; a full expert and screen-reader audit is still outstanding.
+
+For repeatable automated checks, use Node 24+, run a production preview on port
+5191, and launch a dedicated Chrome profile with remote debugging on port 9226.
+Then run `npm run audit:a11y`. Optional positional arguments override the preview
+URL and Chrome debugging URL. The script navigates the dedicated browser tab and
+resets its site preferences. It scans both languages, mobile and desktop, and
+the preferences dialog; results are written to `tmp/accessibility-audit.json`.
 
 ## Deployment
 

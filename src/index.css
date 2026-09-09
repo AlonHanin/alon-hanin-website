@@ -11,13 +11,13 @@
   --color-paper-raised: #f6f8fc;
   --color-ink: #0a0e1a;
   --color-ink-soft: #48506c;
-  --color-muted: #7c839c;
+  --color-muted: #626a80;
   --color-line: #e2e6f0;
   --color-line-soft: #edf0f7;
 
   /* Accent — a single blue family, every shade of it */
   --color-navy: #0b1730;
-  --color-accent: #2f6fed;
+  --color-accent: #245fd1;
   --color-accent-deep: #17419e;
   --color-accent-light: #7cadff;
   --color-accent-2: #38d0e0;
@@ -66,3 +66,36 @@ body {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+.gallery-track { scrollbar-width: none; }
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-track:focus-visible { outline-offset: -3px; }
+html[data-a11y-links="true"] a { text-decoration: underline !important; text-underline-offset: 0.2em; }
+html[data-a11y-contrast="true"] {
+  --color-ink: #000000;
+  --color-ink-soft: #202020;
+  --color-muted: #333333;
+  --color-accent: #17419e;
+  --color-line: #707070;
+  --color-line-soft: #707070;
+}
+html[data-a11y-motion="true"],
+html[data-a11y-motion="true"] *,
+html[data-a11y-motion="true"] *::before,
+html[data-a11y-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html:has(dialog[open]) { overflow: hidden; }
+html[data-large-text="true"] .desktop-nav { display: none; }
+html[data-large-text="true"] .mobile-nav { display: flex; }
+html[data-large-text="true"] #site-shell { padding-bottom: 6rem; }
+html[data-large-text="true"] .accessibility-launcher { bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
+html[data-large-text="true"] .mobile-nav a { min-width: 0; font-size: 0.6875rem; overflow-wrap: anywhere; text-align: center; }
+html[data-large-text="true"] header { position: relative; }
+html[data-large-text="true"] main { overflow-wrap: anywhere; }
+.accessibility-dialog { width: min(28rem, calc(100% - 24px)); max-width: calc(100% - 24px); padding: 20px; overflow-wrap: anywhere; }
+.accessibility-dialog h2 { min-width: 0; }
+.accessibility-dialog > div:first-child > button { width: 44px; height: 44px; }

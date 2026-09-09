@@ -1,7 +1,7 @@
 import { useLanguage } from "../i18n/LanguageContext";
 import type { Project } from "../types";
 import { Container } from "../components/Container";
-import { ProjectImage } from "../components/ProjectImage";
+import { ProjectGallery } from "../components/ProjectGallery";
 import { CTAButton } from "../components/Button";
 
 export function ProjectPage({ project }: { project: Project }) {
@@ -16,8 +16,7 @@ export function ProjectPage({ project }: { project: Project }) {
         </div>
         <h1 className="mt-3 font-display text-3xl font-bold sm:text-5xl"><bdi>{project.name}</bdi></h1>
         <p className="mt-3 max-w-2xl text-pretty text-xl leading-snug">{project.headline}</p>
-        <div className="mt-6 overflow-hidden rounded-xl border border-line"><ProjectImage project={project} expanded /></div>
-        {project.images[0] && <a href={project.images[0].src} target="_blank" rel="noreferrer" className="mt-2 inline-flex min-h-11 items-center text-xs font-medium text-accent">{lang === "he" ? "פתיחת התמונה בגודל מלא ↗" : "Open full-size image ↗"}</a>}
+        <ProjectGallery project={project} />
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-soft">{project.solution}</p>
         <dl className="mt-6 grid gap-6 sm:grid-cols-2">
           <div><dt className="font-semibold">{lang === "he" ? "הצורך" : "The need"}</dt><dd className="mt-2 text-sm leading-relaxed text-ink-soft">{project.problem}</dd></div>
