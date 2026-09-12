@@ -22,7 +22,7 @@ reserved so it does not cover the end of the page; desktop has header navigation
 Project cards open an accessible case-study dialog on an ordinary click. Closing
 it returns focus to the card and preserves the list's position. Modifier-clicks
 and the link inside the dialog open the permanent project page. Both presentations
-share `ProjectStory`. Product covers use CSS device frames around the existing
+share `ProjectStory`. Product covers and story galleries use CSS device/browser frames around the existing
 screenshots; no reference-site artwork or project claims are used.
 
 The Vite `page-entries` plugin generates an HTML entry for each route, plus

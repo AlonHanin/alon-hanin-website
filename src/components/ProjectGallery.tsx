@@ -11,6 +11,7 @@ export function ProjectGallery({ project }: { project: Project }) {
   const id = useId();
   const rtl = lang === "he";
   const count = project.images.length;
+  const phone = project.visual === "green" || project.visual === "wine";
   useEffect(() => {
     const container = track.current;
     if (!container) return;
@@ -55,10 +56,25 @@ export function ProjectGallery({ project }: { project: Project }) {
       >
         {project.images.map((image, index) => (
           <div key={image.src} role="group" aria-roledescription={lang === "he" ? "תמונה" : "slide"} aria-label={`${index + 1} / ${count}`} aria-hidden={index !== active}
-            className="flex w-full min-w-full snap-start items-center justify-center p-3 sm:p-6">
-            <img src={image.src} alt={image.alt} width={image.width} height={image.height}
-              loading={index === 0 ? "eager" : "lazy"} decoding="async" draggable={false}
-              className="h-[clamp(15rem,40svh,23rem)] w-full select-none object-contain sm:h-[24rem]" />
+            className={`project-gallery-stage project-cover-${project.visual} w-full min-w-full snap-start`}>
+            <div aria-hidden="true" className="project-gallery-orbit" />
+            {phone ? (
+              <div className="project-gallery-phone">
+                <span aria-hidden="true" className="project-gallery-speaker" />
+                <img src={image.src} alt={image.alt} width={image.width} height={image.height}
+                  loading={index === 0 ? "eager" : "lazy"} decoding="async" draggable={false} />
+              </div>
+            ) : (
+              <div className="project-gallery-browser">
+                <div aria-hidden="true" className="project-gallery-chrome" dir="ltr">
+                  <span /><span /><span /><b><bdi>{project.name}</bdi></b>
+                </div>
+                <div className="project-gallery-screen">
+                  <img src={image.src} alt={image.alt} width={image.width} height={image.height}
+                    loading={index === 0 ? "eager" : "lazy"} decoding="async" draggable={false} />
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
