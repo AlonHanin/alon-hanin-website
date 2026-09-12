@@ -1,10 +1,8 @@
 import { Home, LayoutGrid, BriefcaseBusiness, MessageCircle, Languages } from "lucide-react";
-import { site } from "../config/site";
 import { navigation, normalizePath } from "../config/routes";
 import { langToggle } from "../data/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "./Container";
-import { Avatar } from "./Avatar";
 
 const icons = { home: Home, services: LayoutGrid, work: BriefcaseBusiness, contact: MessageCircle };
 
@@ -21,9 +19,8 @@ export function Nav() {
       </a>
       <header className="sticky top-0 z-50 border-b border-line-soft bg-paper/95 backdrop-blur-md">
         <Container className="flex min-h-16 items-center justify-between gap-3 py-2 md:py-3">
-          <a href="/" className="flex items-center gap-2.5 font-display text-lg font-bold text-ink">
-            <Avatar size={40} />
-            <span>{site[lang].name}</span>
+          <a href="/" aria-label={lang === "he" ? "NolaNxt — לדף הבית" : "NolaNxt — Home"} className="inline-flex min-h-11 shrink-0 items-center">
+            <img src="/nolanxt-logo.svg" alt="NolaNxt" width={194} height={44} className="h-auto w-[154px] md:w-[176px]" />
           </a>
           <nav className="desktop-nav hidden items-center gap-5 lg:gap-8 md:flex" aria-label={label}>
             {navigation.map((item) => (

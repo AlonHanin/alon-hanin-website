@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="194" height="44" viewBox="0 0 194 44" fill="none">
+  <title>NolaNxt</title>
+  <defs>
+    <linearGradient id="brand" x1="3" y1="41" x2="40" y2="3" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17419e"/>
+      <stop offset="1" stop-color="#2f6fed"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="42" height="42" rx="12" fill="url(#brand)"/>
+  <path d="M11 32V12H16.5L27 25V12H32V32H26.5L16 19V32H11Z" fill="white"/>
+  <path d="M26 5H39V18H34V10H26V5Z" fill="#38d0e0"/>
+  <text x="54" y="32" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" letter-spacing="-1.2" fill="#0a0e1a">Nola<tspan fill="#245fd1" font-weight="900">Nxt</tspan></text>
+</svg>

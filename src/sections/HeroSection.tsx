@@ -4,6 +4,7 @@ import { showProjects } from "../config/site";
 import { Container } from "../components/Container";
 import { CTAButton } from "../components/Button";
 import { HeroVisual } from "../components/HeroVisual";
+import { Avatar } from "../components/Avatar";
 
 export function HeroSection() {
   const { lang } = useLanguage();
@@ -25,7 +26,8 @@ export function HeroSection() {
             </CTAButton>
           </div>
         </div>
-        <div className="order-1 mx-auto w-[112px] sm:w-[160px] lg:order-2 lg:w-full lg:max-w-[320px]"><HeroVisual /></div>
+        <div className="order-1 mx-auto leading-none sm:hidden"><Avatar size={48} /></div>
+        <div className="order-1 mx-auto hidden w-[136px] sm:block lg:order-2 lg:w-full lg:max-w-[280px]"><HeroVisual /></div>
       </Container>
     </section>
   );
