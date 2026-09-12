@@ -62,11 +62,11 @@ try {
         await navigate(route.path);
         await scan({ lang, width, path: route.path, view: "page" });
         if (route.key === "work") {
-          const cards = await evaluate("document.querySelectorAll('.project-card > a').length");
+          const cards = await evaluate("document.querySelectorAll('.project-card > button').length");
           for (let index = 0; index < cards; index++) {
-            await evaluate(`document.querySelectorAll('.project-card > a')[${index}].click()`);
+            await evaluate(`document.querySelectorAll('.project-card > button')[${index}].click()`);
             await scan({ lang, width, path: route.path, view: `project dialog ${index + 1}` });
-            await evaluate("document.querySelector('.project-dialog-bar button').click()");
+            await evaluate("document.querySelector('.project-dialog-close').click()");
           }
         }
       }

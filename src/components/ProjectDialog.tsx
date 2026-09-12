@@ -31,10 +31,9 @@ export function ProjectDialog({ project, onClose }: { project: Project; onClose:
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     }}>
-    <div className="project-dialog-bar sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-line-soft bg-paper px-5 py-2">
-      <span className="text-sm font-medium text-ink-soft">{lang === "he" ? "מבט על הפרויקט" : "Project overview"}</span>
-      <button ref={close} type="button" onClick={onClose} aria-label={lang === "he" ? "סגירת הפרויקט" : "Close project"} className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full border border-line bg-paper"><X size={21} aria-hidden /></button>
+    <div className="project-dialog-close-layer sticky top-0 z-20 h-0">
+      <button ref={close} type="button" onClick={onClose} aria-label={lang === "he" ? "סגירת הפרויקט" : "Close project"} className="project-dialog-close flex h-[44px] w-[44px] items-center justify-center rounded-full border border-white/70 bg-white/90 text-navy shadow-md backdrop-blur"><X size={21} aria-hidden /></button>
     </div>
-    <div className="p-5 sm:p-8"><ProjectStory project={project} inDialog titleId={titleId} /></div>
+    <ProjectStory project={project} inDialog titleId={titleId} />
   </dialog>;
 }

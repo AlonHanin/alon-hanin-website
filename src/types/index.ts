@@ -29,7 +29,14 @@ export interface Project {
   published: boolean;
   headline: string;
   scope: string;
-  images: { src: string; alt: string; caption: string; width: number; height: number }[];
+  images: {
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+    presentation: "device" | "browser";
+  }[];
 }
 
 export interface ProcessStep {

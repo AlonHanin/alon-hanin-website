@@ -19,10 +19,11 @@ Navigation uses normal links. The browser handles back/forward, opening new tabs
 and restoring scroll positions. Mobile has a fixed bottom navigation with space
 reserved so it does not cover the end of the page; desktop has header navigation.
 
-Project cards open an accessible case-study dialog on an ordinary click. Closing
-it returns focus to the card and preserves the list's position. Modifier-clicks
-and the link inside the dialog open the permanent project page. Both presentations
-share `ProjectStory`. Product covers and story galleries use CSS device/browser frames around the existing
+Project cards open an accessible case-study dialog. Closing it returns focus to
+the card and preserves the list's position. Permanent project routes remain
+available for direct URLs and search metadata, while the visible portfolio flow
+stays inside the dialog. Both presentations share `ProjectStory`. Product covers
+and story galleries use a single CSS presentation layer around the selected
 screenshots; no reference-site artwork or project claims are used.
 
 The Vite `page-entries` plugin generates an HTML entry for each route, plus

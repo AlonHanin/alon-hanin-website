@@ -24,7 +24,7 @@ export const projects: Localized<Project[]> = {
       solution: "מערכת לניהול ואחזקת מבנים שמרכזת תקציב שנתי, מידע על דירות ומעקב חיובים ותשלומים, עם אפשרויות ייצוא לדוחות.",
       scope: "פיתוח מערכת ניהול עם מסכי עבודה לפי בניין ושנת תקציב, טבלאות תקציב וייצוא מידע.",
       capabilities: ["תקציב שנתי", "חיובים ותשלומים", "ייצוא דוחות"],
-      stack: [],
+      stack: ["Google Sheets", "Google Drive", "Excel"],
       images: projectImages.he.ap,
     },
     {
@@ -46,7 +46,7 @@ export const projects: Localized<Project[]> = {
       solution: "דשבורד לניתוח נתוני משחקים, עם מדדים, השוואות וגרפים שמאפשרים לחקור מגמות וקשרים בנתונים.",
       scope: "בניית מודל הנתונים, בנייה והטמעה של דשבורדים והצגת מדדים והשוואות.",
       capabilities: ["מודל נתונים", "מדדים והשוואות", "המחשה חזותית"],
-      stack: [],
+      stack: ["Power BI"],
       images: projectImages.he.bi,
     },
     {
@@ -57,7 +57,7 @@ export const projects: Localized<Project[]> = {
       solution: "אתר לאימוץ חתולים עם שבעה עמודים, מידע על אימוץ והתנדבות וטפסים שהפניות מהם נשמרות בשרת.",
       scope: "בניית אתר רב־עמודי, ממשקי טפסים וחיבור לשמירת הפניות בצד השרת.",
       capabilities: ["שבעה עמודים", "טפסי פנייה", "שמירה בשרת"],
-      stack: [],
+      stack: ["HTML5", "CSS3", "JavaScript", "Server"],
       images: projectImages.he.cat4u,
     },
   ],
@@ -81,7 +81,7 @@ export const projects: Localized<Project[]> = {
       solution: "A property management system combining annual budgets, apartment information and payment tracking, with report export options.",
       scope: "Development of building and budget-year workflows, annual budget tables and data export.",
       capabilities: ["Annual budgets", "Charges & payments", "Report exports"],
-      stack: [],
+      stack: ["Google Sheets", "Google Drive", "Excel"],
       images: projectImages.en.ap,
     },
     {
@@ -103,7 +103,7 @@ export const projects: Localized<Project[]> = {
       solution: "A gaming analytics dashboard with metrics, comparisons and charts for exploring patterns and relationships in the data.",
       scope: "Data modeling, dashboard development and implementation, metrics and comparative visualizations.",
       capabilities: ["Data modeling", "Metrics & comparisons", "Visualization"],
-      stack: [],
+      stack: ["Power BI"],
       images: projectImages.en.bi,
     },
     {
@@ -114,7 +114,7 @@ export const projects: Localized<Project[]> = {
       solution: "A seven-page cat adoption website with adoption and volunteering information and forms that save submissions on the server.",
       scope: "Multi-page website development, form interfaces and server-side submission storage.",
       capabilities: ["Seven pages", "Inquiry forms", "Server-side storage"],
-      stack: [],
+      stack: ["HTML5", "CSS3", "JavaScript", "Server"],
       images: projectImages.en.cat4u,
     },
   ],

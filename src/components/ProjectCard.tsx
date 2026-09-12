@@ -12,8 +12,8 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <>
     <article className="project-card min-w-0 snap-start overflow-hidden rounded-xl border border-line bg-paper transition-shadow hover:shadow-md">
-      <a href={`/work/${project.id}/`} aria-haspopup="dialog" className="flex h-full flex-col"
-        onClick={(event) => { if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) { event.preventDefault(); setOpen(true); } }}>
+      <button type="button" aria-haspopup="dialog" onClick={() => setOpen(true)}
+        className="flex h-full w-full cursor-pointer flex-col text-start">
         <ProjectCover project={project} />
         <div className="flex min-w-0 flex-1 flex-col p-5">
           <h3 className="text-pretty font-display text-lg font-bold leading-snug text-ink">{project.category}</h3>
@@ -27,7 +27,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {lang === "he" ? "לסיפור הפרויקט" : "Explore the project"}<Arrow size={17} aria-hidden />
           </span>
         </div>
-      </a>
+      </button>
     </article>
     {open && <ProjectDialog project={project} onClose={() => setOpen(false)} />}
     </>
