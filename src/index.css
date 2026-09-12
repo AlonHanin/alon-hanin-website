@@ -113,6 +113,10 @@ html[data-large-text="true"] main { overflow-wrap: anywhere; }
 .project-cover-device { height: 100%; filter: drop-shadow(0 14px 10px #0b173038); transform: rotate(-5deg); }
 .project-cover-device + .project-cover-device { transform: translateY(7px) rotate(5deg); }
 .project-cover-device img { display: block; width: auto; height: 100%; object-fit: contain; }
+.project-cover-wine .project-cover-device img,
+.project-cover-wine .project-gallery-device img { clip-path: inset(0 2.8% 0 5.8% round 12% / 6%); }
+.project-cover-green .project-cover-device img,
+.project-cover-green .project-gallery-device img { clip-path: inset(3.3% 5.8% 4.8% round 13% / 6.5%); }
 .project-cover-browser { width: 88%; max-width: 460px; transform: perspective(800px) rotateY(-5deg) rotateX(3deg); }
 .project-cover-screen { overflow: hidden; border: 1px solid #15223824; border-radius: 7px; background: white; box-shadow: 0 16px 20px -12px #0b173060; }
 .project-cover-screen img { display: block; width: 100%; height: auto; max-height: 165px; object-fit: contain; }
