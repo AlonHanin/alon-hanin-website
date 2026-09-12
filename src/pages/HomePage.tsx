@@ -1,7 +1,7 @@
 import { LayoutDashboard, Globe, Smartphone, ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import { HeroSection } from "../sections/HeroSection";
 import { Container } from "../components/Container";
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectCollection } from "../components/ProjectCollection";
 import { CTAButton } from "../components/Button";
 import { projects } from "../data/projects";
 import { showProjects } from "../config/site";
@@ -9,14 +9,14 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 const services = {
   he: [
-    { title: "מערכות לניהול העסק", text: "לקוחות, משימות ותהליכים במקום אחד.", icon: LayoutDashboard, hash: "business-systems" },
-    { title: "אתרים שעובדים בשבילכם", text: "נוכחות מקצועית ודרך פשוטה לפנות.", icon: Globe, hash: "business-websites" },
-    { title: "אפליקציות וכלים לצוות", text: "חיבור בין העובדים, הלקוחות והמערכת.", icon: Smartphone, hash: "mobile-apps" },
+    { title: "לעשות סדר בעבודה", text: "מערכת שמרכזת לקוחות, משימות ונתונים.", icon: LayoutDashboard, hash: "business-systems" },
+    { title: "להציג את העסק ברשת", text: "אתר ברור שעוזר ללקוחות להבין ולפנות.", icon: Globe, hash: "business-websites" },
+    { title: "לחבר את העבודה בשטח", text: "אפליקציה שמחברת עובדים ולקוחות למערכת.", icon: Smartphone, hash: "mobile-apps" },
   ],
   en: [
-    { title: "Business management systems", text: "Customers, tasks and workflows in one place.", icon: LayoutDashboard, hash: "business-systems" },
-    { title: "Websites for your business", text: "A professional presence that makes contact easy.", icon: Globe, hash: "business-websites" },
-    { title: "Apps & tools for your team", text: "Connecting staff, customers and your system.", icon: Smartphone, hash: "mobile-apps" },
+    { title: "Bring work into one place", text: "A system for customers, tasks and business data.", icon: LayoutDashboard, hash: "business-systems" },
+    { title: "Put your business online", text: "A clear website that makes understanding and contact easy.", icon: Globe, hash: "business-websites" },
+    { title: "Connect your team in the field", text: "An app connecting staff and customers to your system.", icon: Smartphone, hash: "mobile-apps" },
   ],
 };
 
@@ -47,9 +47,7 @@ export function HomePage() {
               <h2 className="font-display text-2xl font-bold">{lang === "he" ? "הצצה לעבודות שלי" : "A look at my work"}</h2>
               <a href="/work/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-accent">{lang === "he" ? "לכל העבודות" : "All projects"}<Arrow size={16} aria-hidden /></a>
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {featured.map((project) => <ProjectCard key={project.id} project={project} />)}
-            </div>
+            <ProjectCollection items={featured} featured />
           </Container>
         </section>
       )}

@@ -1,7 +1,7 @@
 import { projects } from "../data/projects";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectCollection } from "../components/ProjectCollection";
 
 export function ProjectsSection() {
   const { lang } = useLanguage();
@@ -12,9 +12,7 @@ export function ProjectsSection() {
         <p className="text-xs font-semibold text-accent">{lang === "he" ? "תיק עבודות" : "Portfolio"}</p>
         <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">{lang === "he" ? "עבודות נבחרות" : "Selected work"}</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-soft">{lang === "he" ? "מערכות, אפליקציות ואתרים שפיתחתי. בחרו פרויקט להצצה בתהליך ובתוצאה." : "Systems, apps and websites I've built. Explore a project to see the work behind it."}</p>
-        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((project) => <ProjectCard key={project.id} project={project} />)}
-        </div>
+        <ProjectCollection items={visible} />
       </Container>
     </section>
   );

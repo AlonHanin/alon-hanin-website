@@ -61,6 +61,14 @@ try {
       for (const route of pageRoutes) {
         await navigate(route.path);
         await scan({ lang, width, path: route.path, view: "page" });
+        if (route.key === "work") {
+          const cards = await evaluate("document.querySelectorAll('.project-card > a').length");
+          for (let index = 0; index < cards; index++) {
+            await evaluate(`document.querySelectorAll('.project-card > a')[${index}].click()`);
+            await scan({ lang, width, path: route.path, view: `project dialog ${index + 1}` });
+            await evaluate("document.querySelector('.project-dialog-bar button').click()");
+          }
+        }
       }
       await evaluate(`document.querySelector('.accessibility-launcher button').click()`);
       await scan({ lang, width, view: "accessibility dialog" });

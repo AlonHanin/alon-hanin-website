@@ -10,7 +10,7 @@ between pages.
 | --- | --- |
 | `/` | Short homepage: introduction, three service summaries, WineOps and A.P previews, contact invitation |
 | `/services/` | Services, expandable details, three-stage process and common questions |
-| `/work/` | Compact catalog of all published projects |
+| `/work/` | Project covers and summaries; desktop grid and mobile swipe carousel |
 | `/work/<project-id>/` | Project images, scope, contribution and contact link |
 | `/contact/` | Contact options followed by background and qualifications |
 | `/accessibility/` | Accessibility statement, remote-only service and contact details |
@@ -18,6 +18,12 @@ between pages.
 Navigation uses normal links. The browser handles back/forward, opening new tabs
 and restoring scroll positions. Mobile has a fixed bottom navigation with space
 reserved so it does not cover the end of the page; desktop has header navigation.
+
+Project cards open an accessible case-study dialog on an ordinary click. Closing
+it returns focus to the card and preserves the list's position. Modifier-clicks
+and the link inside the dialog open the permanent project page. Both presentations
+share `ProjectStory`. Product covers use CSS device frames around the existing
+screenshots; no reference-site artwork or project claims are used.
 
 The Vite `page-entries` plugin generates an HTML entry for each route, plus
 `404.html`, from the built index. Each entry loads the shared React application,
@@ -51,6 +57,9 @@ the local Vite development server may use its own HTML fallback.
 | `src/pages/ServicesPage.tsx` | Service audience summaries, process and FAQ |
 | `src/pages/ContactPage.tsx` | Contact page introduction |
 | `src/pages/ProjectPage.tsx` | Shared detail page for every project |
+| `src/components/ProjectStory.tsx` | Shared challenge, contribution, gallery and capabilities |
+| `src/components/ProjectCollection.tsx` | Desktop grid and mobile project carousel |
+| `src/components/ProjectCover.tsx` | Screenshot selection and device presentation for cards |
 | `src/data/siteContent.ts` | Hero headline, about content, contact labels and shared section copy |
 | `src/data/services.ts` | Detailed service descriptions and examples |
 | `src/data/projects.ts` | Project text, status, sanitized images and publication settings |
