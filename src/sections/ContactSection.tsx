@@ -5,7 +5,6 @@ import {
   hasEmail,
   whatsappHref,
   emailHref,
-  contact,
 } from "../config/contact";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
@@ -54,10 +53,6 @@ export function ContactSection() {
                 </CTAButton>
               )}
             </div>
-
-            {hasEmail && (
-              <p className="mt-6 font-mono text-sm text-white/45">{contact.email}</p>
-            )}
           </div>
         </div>
       </Container>
