@@ -49,7 +49,8 @@ const scan = async (context) => {
     violations: r.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({html: n.html, summary: n.failureSummary})) })),
     needsManualReview: r.incomplete.length
   }))`);
-  results.push({ ...context, ...result });
+  const layout = await evaluate(`({ viewportWidth: document.documentElement.clientWidth, contentWidth: document.documentElement.scrollWidth })`);
+  results.push({ ...context, ...result, ...layout, horizontalOverflow: layout.contentWidth > layout.viewportWidth + 1 });
 };
 try {
   await call("Page.enable");
@@ -77,9 +78,9 @@ try {
       await evaluate(`document.querySelector('dialog > button').click()`);
     }
   }
-  const failures = results.filter((result) => result.violations.length);
+  const failures = results.filter((result) => result.violations.length || result.horizontalOverflow);
   await fs.mkdir("tmp", { recursive: true });
   await fs.writeFile("tmp/accessibility-audit.json", JSON.stringify(results, null, 2));
-  console.log(`${results.length} scans; ${failures.length} scans with automated violations. Manual review remains necessary.`);
+  console.log(`${results.length} scans; ${failures.length} scans with automated accessibility or horizontal-overflow failures. Manual review remains necessary.`);
   if (failures.length) { console.log(JSON.stringify(failures, null, 2)); process.exitCode = 1; }
 } finally { ws.close(); }

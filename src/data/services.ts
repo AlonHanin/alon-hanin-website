@@ -5,7 +5,7 @@ import {
   Smartphone,
   Plug,
 } from "lucide-react";
-import type { Localized, Service } from "../types";
+import type { Localized, Service } from "../types/index.ts";
 
 export const services: Localized<Service[]> = {
   en: [
@@ -82,17 +82,20 @@ export const integrationsNote: Localized<{
   icon: typeof Plug;
   title: string;
   description: string;
+  note: string;
 }> = {
   en: {
     icon: Plug,
-    title: "Also: connecting systems together",
+    title: "Built to Work With the Tools You Already Use",
     description:
-      "When needed — connecting to existing systems, importing and exporting data, and automations between tools via APIs, so information moves once and stays correct everywhere.",
+      "Connect CRM platforms, websites, messaging tools, finance systems, databases and internal software into a more consistent business workflow. Existing tools can remain in place when they are the right fit.",
+    note: "NolaNxt does not automatically replace your existing software. The goal is to understand the workflow and connect, improve or extend the tools that already make sense.",
   },
   he: {
     icon: Plug,
-    title: "וגם: חיבור בין מערכות",
+    title: "נבנה כדי לעבוד עם הכלים שכבר נמצאים אצלכם",
     description:
-      "כשצריך — חיבור למערכות קיימות, ייבוא וייצוא נתונים, ואוטומציות בין כלים דרך APIs, כך שהמידע זז פעם אחת ונשאר נכון בכל מקום.",
+      "מחברים מערכות CRM, אתרים, כלי הודעות, מערכות פיננסיות, מסדי נתונים ותוכנות פנימיות לתהליך עבודה עסקי עקבי יותר. כשהכלים הקיימים מתאימים, הם יכולים להישאר.",
+    note: "NolaNxt לא מחליפה אוטומטית את התוכנות הקיימות בעסק. המטרה היא להבין את תהליך העבודה ולחבר, לשפר או להרחיב את הכלים שכבר מתאימים.",
   },
 };

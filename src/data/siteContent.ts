@@ -1,4 +1,4 @@
-import type { Localized } from "../types";
+import type { Localized } from "../types/index.ts";
 
 /**
  * Free-text copy for every section that isn't a repeating list
@@ -60,13 +60,13 @@ export const painPoint = {
 export const howIWork = {
   en: {
     eyebrow: "How I Work",
-    headline: "Five stages, always in this order.",
-    highlight: "We don't start with code. We start with the business process.",
+    headline: "Four stages, always in this order.",
+    highlight: "The process comes before the technology.",
   },
   he: {
     eyebrow: "איך זה עובד",
-    headline: "חמישה שלבים, תמיד באותו סדר.",
-    highlight: "לא מתחילים מקוד. מתחילים מהתהליך העסקי.",
+    headline: "ארבעה שלבים, תמיד באותו סדר.",
+    highlight: "התהליך קודם לטכנולוגיה.",
   },
 } satisfies Localized<Record<string, string>>;
 

@@ -1,0 +1,38 @@
+import { CTAButton } from "../components/Button";
+import { Container } from "../components/Container";
+import { publishedInsights } from "../data/insights";
+import { useLanguage } from "../i18n/LanguageContext";
+
+export function InsightsPage() {
+  const { lang } = useLanguage();
+  const articles = publishedInsights(lang);
+  const he = lang === "he";
+
+  return (
+    <section className="py-10 sm:py-16">
+      <Container>
+        <p className="text-xs font-semibold text-accent">{he ? "תובנות" : "Insights"}</p>
+        <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">{he ? "מדריכים מעשיים לעבודה דיגיטלית טובה יותר" : "Practical guides for better digital workflows"}</h1>
+        <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">{he ? "המאמרים הראשונים נמצאים בהכנה. העמוד ייפתח לאינדוקס כשיתפרסם בו תוכן מלא ומקצועי." : "The first articles are being prepared. This page will be opened for indexing when complete, reviewed content is published."}</p>
+
+        {articles.length > 0 ? (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {articles.map((article) => (
+              <article key={article.slug} className="rounded-xl border border-line bg-paper-raised p-5">
+                <h2 className="font-display text-xl font-bold"><a href={`/insights/${article.slug}/`} className="hover:text-accent">{article.title}</a></h2>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{article.summary}</p>
+                <time className="mt-4 block text-xs text-muted" dateTime={article.publishedAt}>{article.publishedAt}</time>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-8 rounded-xl border border-line bg-paper-raised p-5">
+            <p className="text-sm text-ink-soft">{he ? "אין עדיין מאמרים שפורסמו." : "No articles have been published yet."}</p>
+          </div>
+        )}
+
+        <div className="mt-8"><CTAButton href="/contact/">{he ? "יש לכם תהליך שתרצו לשפר?" : "Have a workflow you want to improve?"}</CTAButton></div>
+      </Container>
+    </section>
+  );
+}

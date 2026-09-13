@@ -13,7 +13,12 @@ if (window.location.pathname === "/" && legacyLinks[window.location.hash]) {
   window.location.replace(legacyLinks[window.location.hash]);
 }
 
-createRoot(document.getElementById("root")!).render(
+const root = document.getElementById("root")!;
+// Production HTML contains crawlable route content. React replaces that
+// build-time snapshot with the interactive application as soon as it starts.
+root.replaceChildren();
+
+createRoot(root).render(
   <StrictMode>
     <LanguageProvider>
       <App />

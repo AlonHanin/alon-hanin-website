@@ -9,9 +9,12 @@ import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { ContactPage } from "./pages/ContactPage";
 import { ProjectPage } from "./pages/ProjectPage";
+import { InsightsPage } from "./pages/InsightsPage";
+import { InsightArticlePage } from "./pages/InsightArticlePage";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { projects } from "./data/projects";
-import { normalizePath, pageRoutes, pageTitle } from "./config/routes";
+import { insights } from "./data/insights";
+import { canonicalUrl, normalizePath, pageDescription, pageRoutes, pageTitle } from "./config/routes";
 import { useLanguage } from "./i18n/LanguageContext";
 
 function App() {
@@ -19,11 +22,24 @@ function App() {
   const path = normalizePath(window.location.pathname);
   const route = pageRoutes.find((page) => page.path === path);
   const project = route?.key === "project" ? projects[lang].find((p) => p.published && path === `/work/${p.id}/`) : undefined;
+  const insight = route?.key === "insight" ? insights[lang].find((article) => article.published && path === `/insights/${article.slug}/`) : undefined;
 
   useEffect(() => {
     document.title = pageTitle(path, lang);
-    document.querySelector('meta[property="og:title"]')?.setAttribute("content", document.title);
-  }, [path, lang]);
+    const description = pageDescription(path, lang);
+    const canonical = canonicalUrl(path);
+    const setContent = (selector: string, value: string) => document.querySelector(selector)?.setAttribute("content", value);
+    setContent('meta[name="description"]', description);
+    setContent('meta[name="robots"]', !route || route.indexable === false ? "noindex,follow" : "index,follow");
+    setContent('meta[property="og:title"]', document.title);
+    setContent('meta[property="og:description"]', description);
+    setContent('meta[property="og:url"]', canonical);
+    setContent('meta[property="og:locale"]', lang === "he" ? "he_IL" : "en_US");
+    setContent('meta[property="og:type"]', insight ? "article" : "website");
+    setContent('meta[name="twitter:title"]', document.title);
+    setContent('meta[name="twitter:description"]', description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", canonical);
+  }, [path, lang, route, insight]);
 
   let content;
   if (route?.key === "home") content = <HomePage />;
@@ -31,6 +47,8 @@ function App() {
   else if (route?.key === "contact") content = <ContactPage />;
   else if (route?.key === "work") content = <ProjectsSection />;
   else if (route?.key === "accessibility") content = <AccessibilityPage />;
+  else if (route?.key === "insights") content = <InsightsPage />;
+  else if (insight) content = <InsightArticlePage article={insight} />;
   else if (project) content = <ProjectPage project={project} />;
   else content = (
     <Container className="py-16">

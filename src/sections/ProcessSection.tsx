@@ -14,7 +14,7 @@ export function ProcessSection() {
       <Container>
         <SectionHeading eyebrow={t.eyebrow} title={t.headline} />
 
-        <ol className="relative mt-14 grid gap-10 sm:grid-cols-5 sm:gap-6">
+        <ol className="relative mt-14 grid gap-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {steps.map(({ step, title, description }, i) => (
             <li key={step} className="relative">
               {i < steps.length - 1 && (

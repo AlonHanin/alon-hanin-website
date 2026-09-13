@@ -15,6 +15,20 @@ export interface Service {
 
 export type ProjectStatus = "active" | "in-development" | "academic";
 
+export interface ProjectMedia {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  presentation: "device" | "browser";
+}
+
+export interface ProjectCta {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   id: string;
   name: string;
@@ -29,14 +43,37 @@ export interface Project {
   published: boolean;
   headline: string;
   scope: string;
-  images: {
-    src: string;
-    alt: string;
-    caption: string;
-    width: number;
-    height: number;
-    presentation: "device" | "browser";
-  }[];
+  result?: string;
+  existingWorkflow?: string;
+  requirements?: string[];
+  integrations?: string[];
+  architectureDiagram?: ProjectMedia;
+  relatedServiceId?: string;
+  cta?: ProjectCta;
+  images: ProjectMedia[];
+}
+
+export interface InsightSection {
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface InsightArticle {
+  slug: string;
+  title: string;
+  summary: string;
+  published: boolean;
+  publishedAt: string;
+  updatedAt?: string;
+  author: string;
+  metaTitle: string;
+  metaDescription: string;
+  sections: InsightSection[];
+  relatedArticleSlugs: string[];
+  relatedServiceIds: string[];
+  cta?: ProjectCta;
+  image?: ProjectMedia;
+  diagram?: ProjectMedia;
 }
 
 export interface ProcessStep {

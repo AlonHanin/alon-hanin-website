@@ -1,4 +1,6 @@
-import { services } from "../data/services";
+import { integrationsNote, services } from "../data/services";
+import { processSteps } from "../data/process";
+import { howIWork } from "../data/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
 import { CTAButton } from "../components/Button";
@@ -10,11 +12,6 @@ const copy = {
     audiences: ["לעסקים שרוצים לרכז לקוחות, הזמנות ומשימות.", "לצוותים שצריכים כלי עבודה מותאם בדפדפן.", "לעסקים שרוצים להציג את עצמם ולקבל פניות.", "לתהליכים שצריכים לעבוד גם מהנייד ובשטח."],
     more: "מה כולל הפתרון?",
     process: "איך עובדים יחד?",
-    steps: [
-      ["מיפוי ואפיון", "מבינים את העבודה היום ומגדירים את הבעיה, המשתמשים והיקף הפתרון."],
-      ["בנייה ומשוב", "מפתחים בשלבים, רואים התקדמות ומשפרים יחד לאורך הדרך."],
-      ["עלייה לאוויר", "בודקים, מטמיעים ומסבירים לצוות איך להשתמש במערכת."],
-    ],
     faq: "לפני שמתחילים",
     questions: [
       ["אפשר להתחיל מתהליך קטן?", "כן. אפשר להתחיל בתהליך אחד ממוקד ולהרחיב את הפתרון בהמשך לפי הצורך."],
@@ -30,11 +27,6 @@ const copy = {
     audiences: ["For businesses bringing customers, orders and tasks together.", "For teams that need custom tools in the browser.", "For businesses building their presence and generating inquiries.", "For workflows that need to work on mobile and in the field."],
     more: "What's included?",
     process: "How we work together",
-    steps: [
-      ["Understand & define", "Map the current workflow, the problem, the users and the scope of the solution."],
-      ["Build & refine", "Develop in stages, review progress and improve with feedback along the way."],
-      ["Launch & adopt", "Test, deploy and help the team learn how to use the system."],
-    ],
     faq: "Before we start",
     questions: [
       ["Can we start with one small process?", "Yes. We can start with one focused workflow and expand the solution as needed."],
@@ -49,6 +41,9 @@ const copy = {
 export function ServicesPage() {
   const { lang } = useLanguage();
   const t = copy[lang];
+  const integration = integrationsNote[lang];
+  const IntegrationIcon = integration.icon;
+  const steps = processSteps[lang];
   return (
     <div className="py-9 sm:py-16">
       <Container>
@@ -68,16 +63,27 @@ export function ServicesPage() {
             </section>
           ))}
         </div>
+        <section id="integrations" className="mt-5 flex items-start gap-4 rounded-xl border border-dashed border-line p-5">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-2/10 text-accent-2">
+            <IntegrationIcon size={20} aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-display text-lg font-bold">{integration.title}</h2>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{integration.description}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{integration.note}</p>
+          </div>
+        </section>
         <section id="how-i-work" className="mt-10 border-t border-line-soft pt-8">
           <h2 className="font-display text-2xl font-bold">{t.process}</h2>
-          <ol className="mt-5 grid gap-5 sm:grid-cols-3">
-            {t.steps.map(([title, description], i) => (
-              <li key={title} className="flex items-start gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm text-paper">{i + 1}</span>
+          <ol className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map(({ step, title, description }) => (
+              <li key={step} className="flex items-start gap-3">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-sm text-paper">{step}</span>
                 <div><h3 className="font-semibold">{title}</h3><p className="mt-1 text-sm leading-relaxed text-ink-soft">{description}</p></div>
               </li>
             ))}
           </ol>
+          <p className="mt-6 border-t border-line-soft pt-5 font-display text-lg font-medium text-accent">{howIWork[lang].highlight}</p>
         </section>
         <section className="mt-10">
           <h2 className="font-display text-2xl font-bold">{t.faq}</h2>

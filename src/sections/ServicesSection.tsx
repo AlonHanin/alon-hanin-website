@@ -68,6 +68,7 @@ export function ServicesSection() {
             <p className="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">
               {integ.description}
             </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{integ.note}</p>
           </div>
         </div>
       </Container>
