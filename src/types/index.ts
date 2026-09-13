@@ -71,6 +71,7 @@ export interface InsightArticle {
   sections: InsightSection[];
   relatedArticleSlugs: string[];
   relatedServiceIds: string[];
+  relatedProjectIds: string[];
   cta?: ProjectCta;
   image?: ProjectMedia;
   diagram?: ProjectMedia;

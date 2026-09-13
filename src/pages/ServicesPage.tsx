@@ -1,6 +1,7 @@
 import { integrationsNote, services } from "../data/services";
 import { processSteps } from "../data/process";
 import { howIWork } from "../data/siteContent";
+import { servicesFaq } from "../data/faq";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "../components/Container";
 import { CTAButton } from "../components/Button";
@@ -13,11 +14,6 @@ const copy = {
     more: "מה כולל הפתרון?",
     process: "איך עובדים יחד?",
     faq: "לפני שמתחילים",
-    questions: [
-      ["אפשר להתחיל מתהליך קטן?", "כן. אפשר להתחיל בתהליך אחד ממוקד ולהרחיב את הפתרון בהמשך לפי הצורך."],
-      ["אפשר לחבר למערכות קיימות?", "בודקים אילו מערכות כבר קיימות בעסק ואילו אפשרויות חיבור או ייבוא נתונים הן מציעות. לפי זה מגדירים מה אפשר לשלב."],
-      ["איך נקבעים ההיקף ולוח הזמנים?", "אחרי שמבינים את הצורך, מגדירים את המסכים, התהליכים והחיבורים הדרושים. אלה הבסיס לתכנון העבודה וההצעה."],
-    ],
     contact: "נבדוק יחד מה מתאים לעסק שלכם",
     button: "בואו נדבר",
   },
@@ -28,11 +24,6 @@ const copy = {
     more: "What's included?",
     process: "How we work together",
     faq: "Before we start",
-    questions: [
-      ["Can we start with one small process?", "Yes. We can start with one focused workflow and expand the solution as needed."],
-      ["Can you connect existing systems?", "We review the systems you already use and their integration and data-import options to determine what can be connected."],
-      ["How are scope and timing defined?", "Once the need is clear, we define the screens, workflows and integrations required. These inform the work plan and proposal."],
-    ],
     contact: "Let's find the right fit for your business",
     button: "Let's talk",
   },
@@ -88,8 +79,9 @@ export function ServicesPage() {
         <section className="mt-10">
           <h2 className="font-display text-2xl font-bold">{t.faq}</h2>
           <div className="mt-4 divide-y divide-line-soft">
-            {t.questions.map(([question, answer]) => <details key={question} className="py-1"><summary className="cursor-pointer py-4 font-medium">{question}</summary><p className="max-w-3xl pb-4 text-sm leading-relaxed text-ink-soft">{answer}</p></details>)}
+            {servicesFaq[lang].map(({ question, answer }) => <details key={question} className="py-1"><summary className="cursor-pointer py-4 font-medium">{question}</summary><p className="max-w-3xl pb-4 text-sm leading-relaxed text-ink-soft">{answer}</p></details>)}
           </div>
+          <a href="/insights/" className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-accent underline underline-offset-4">{lang === "he" ? "למדריכים המעשיים" : "Read practical insights"}</a>
         </section>
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-paper-raised p-5"><p className="font-medium">{t.contact}</p><CTAButton href="/contact/">{t.button}</CTAButton></div>
       </Container>

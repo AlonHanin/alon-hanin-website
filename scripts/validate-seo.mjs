@@ -1,12 +1,17 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { canonicalUrl, pageRoutes, SITE_URL } from "../src/config/routes.ts";
+import { insights } from "../src/data/insights.ts";
+import { projects } from "../src/data/projects.ts";
+import { servicesFaq } from "../src/data/faq.ts";
 
 const dist = path.resolve("dist");
 const failures = [];
 const fail = (message) => failures.push(message);
 const fileForRoute = (routePath) => routePath === "/" ? path.join(dist, "index.html") : path.join(dist, routePath.slice(1), "index.html");
 const htmlByRoute = new Map();
+const expectedHomepageTitle = "Custom Business Systems &amp; Automation | Nolanxt";
+const expectedHomepageDescription = "Nolanxt designs custom business systems and automation around real business workflows, helping businesses reduce manual work and connect the tools they already use.";
 
 for (const route of pageRoutes) {
   const file = fileForRoute(route.path);
@@ -27,8 +32,26 @@ for (const route of pageRoutes) {
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   if (schemas.length === 0) fail(`${route.path}: missing structured data`);
   for (const [, json] of schemas) {
-    try { JSON.parse(json); } catch (error) { fail(`${route.path}: invalid structured data (${error.message})`); }
+    try {
+      const parsed = JSON.parse(json);
+      const entries = Array.isArray(parsed) ? parsed : [parsed];
+      if (route.key === "insight" && !entries.some((entry) => entry["@type"] === "Article")) fail(`${route.path}: missing Article structured data`);
+    } catch (error) { fail(`${route.path}: invalid structured data (${error.message})`); }
   }
+}
+
+const homepage = htmlByRoute.get("/") ?? "";
+if (!homepage.includes(`<title>${expectedHomepageTitle}</title>`)) fail("Homepage title does not match the approved value");
+if (!homepage.includes(`content="${expectedHomepageDescription}"`)) fail("Homepage meta description does not match the approved value");
+
+for (const article of insights.en.filter((item) => item.published)) {
+  if (!insights.he.some((item) => item.slug === article.slug && item.published)) fail(`${article.slug}: missing published Hebrew version`);
+}
+
+for (const lang of ["en", "he"]) {
+  const ap = projects[lang].find((project) => project.id === "ap");
+  if (!ap?.stack.includes("Google Apps Script")) fail(`A.P project is missing Google Apps Script in ${lang}`);
+  if (servicesFaq[lang].length < 9) fail(`Services FAQ is incomplete in ${lang}`);
 }
 
 for (const [routePath, html] of htmlByRoute) {

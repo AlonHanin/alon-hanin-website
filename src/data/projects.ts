@@ -28,7 +28,7 @@ export const projects: Localized<Project[]> = {
       result: "תקציבים, דירות, חיובים ותשלומים מנוהלים מתוך תהליך עבודה מרכזי, עם אפשרות לייצא את המידע לדוחות.",
       relatedServiceId: "business-systems",
       capabilities: ["תקציב שנתי", "חיובים ותשלומים", "ייצוא דוחות"],
-      stack: ["Google Sheets", "Google Drive", "Excel"],
+      stack: ["Google Apps Script", "Google Sheets", "Google Drive", "Excel"],
       images: projectImages.he.ap,
     },
     {
@@ -95,7 +95,7 @@ export const projects: Localized<Project[]> = {
       result: "Budgets, apartments, charges and payments can be managed through one central workflow, with data available for report export.",
       relatedServiceId: "business-systems",
       capabilities: ["Annual budgets", "Charges & payments", "Report exports"],
-      stack: ["Google Sheets", "Google Drive", "Excel"],
+      stack: ["Google Apps Script", "Google Sheets", "Google Drive", "Excel"],
       images: projectImages.en.ap,
     },
     {

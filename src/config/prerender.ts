@@ -2,6 +2,7 @@ import { insights, publishedInsights } from "../data/insights.ts";
 import { processSteps } from "../data/process.ts";
 import { projects } from "../data/projects.ts";
 import { integrationsNote, services } from "../data/services.ts";
+import { servicesFaq } from "../data/faq.ts";
 import { about, contactSection, hero, howIWork } from "../data/siteContent.ts";
 import { canonicalUrl, routeFor, SITE_URL } from "./routes.ts";
 
@@ -25,7 +26,7 @@ function homeBody() {
       <p class="mt-4 max-w-3xl leading-relaxed text-ink-soft">${escapeHtml(hero.en.sub)}</p>
       <p class="mt-5"><a class="font-semibold text-accent" href="/contact/">${escapeHtml(hero.en.ctaPrimary)}</a> · <a class="font-semibold text-accent" href="/services/#how-i-work">${escapeHtml(hero.en.ctaSecondary)}</a></p>
     </section>
-    <section class="mt-12"><h2 class="font-display text-2xl font-bold">How can I help?</h2><div class="mt-5 grid gap-4 sm:grid-cols-2">${services.en.map((service) => `<article><h3 class="font-semibold"><a href="/services/#${escapeHtml(service.id)}">${escapeHtml(service.title)}</a></h3><p class="mt-2 text-sm leading-relaxed text-ink-soft">${escapeHtml(service.description)}</p></article>`).join("")}</div></section>
+    <section class="mt-12"><h2 class="font-display text-2xl font-bold">How can I help?</h2><p class="mt-3"><a class="font-semibold text-accent" href="/insights/">Read practical insights</a></p><div class="mt-5 grid gap-4 sm:grid-cols-2">${services.en.map((service) => `<article><h3 class="font-semibold"><a href="/services/#${escapeHtml(service.id)}">${escapeHtml(service.title)}</a></h3><p class="mt-2 text-sm leading-relaxed text-ink-soft">${escapeHtml(service.description)}</p></article>`).join("")}</div></section>
     <section class="mt-12"><h2 class="font-display text-2xl font-bold"><a href="/work/">Selected work</a></h2><div class="mt-5 grid gap-4 sm:grid-cols-2">${featured.map((project) => `<article><h3 class="font-semibold"><a href="/work/${escapeHtml(project.id)}/">${escapeHtml(project.name)} — ${escapeHtml(project.category)}</a></h3><p class="mt-2 text-sm leading-relaxed text-ink-soft">${escapeHtml(project.headline)}</p></article>`).join("")}</div></section>
     <section class="mt-12"><h2 class="font-display text-2xl font-bold">${escapeHtml(about.en.headline)}</h2><p class="mt-3 max-w-3xl leading-relaxed text-ink-soft">${escapeHtml(about.en.paragraphs[0])}</p><p class="mt-4"><a class="font-semibold text-accent" href="/contact/">About Alon and contact</a></p></section>
   `);
@@ -39,7 +40,8 @@ function servicesBody() {
     <div class="mt-8 grid gap-5 sm:grid-cols-2">${services.en.map((service) => `<section id="${escapeHtml(service.id)}"><h2 class="font-display text-xl font-bold">${escapeHtml(service.title)}</h2><p class="mt-2 leading-relaxed text-ink-soft">${escapeHtml(service.description)}</p>${list(service.examples)}</section>`).join("")}</div>
     <section id="integrations" class="mt-10"><h2 class="font-display text-2xl font-bold">${escapeHtml(integrationsNote.en.title)}</h2><p class="mt-3 max-w-3xl leading-relaxed text-ink-soft">${escapeHtml(integrationsNote.en.description)}</p><p class="mt-2 max-w-3xl leading-relaxed text-ink-soft">${escapeHtml(integrationsNote.en.note)}</p></section>
     <section id="how-i-work" class="mt-10"><h2 class="font-display text-2xl font-bold">How we work together</h2><ol class="mt-5 grid gap-5 sm:grid-cols-2">${processSteps.en.map((item) => `<li><h3 class="font-semibold">${item.step}. ${escapeHtml(item.title)}</h3><p class="mt-2 text-sm leading-relaxed text-ink-soft">${escapeHtml(item.description)}</p></li>`).join("")}</ol><p class="mt-5 font-semibold text-accent">${escapeHtml(howIWork.en.highlight)}</p></section>
-    <p class="mt-10"><a class="font-semibold text-accent" href="/work/">See selected projects</a> · <a class="font-semibold text-accent" href="/contact/">Let's talk</a></p>
+    <section class="mt-10"><h2 class="font-display text-2xl font-bold">Before we start</h2>${servicesFaq.en.map(({ question, answer }) => `<details><summary class="font-semibold">${escapeHtml(question)}</summary><p class="mt-2 text-sm leading-relaxed text-ink-soft">${escapeHtml(answer)}</p></details>`).join("")}</section>
+    <p class="mt-10"><a class="font-semibold text-accent" href="/work/">See selected projects</a> · <a class="font-semibold text-accent" href="/insights/">Read practical insights</a> · <a class="font-semibold text-accent" href="/contact/">Let's talk</a></p>
   `);
 }
 
@@ -78,13 +80,16 @@ function contactBody() {
 
 function insightsBody() {
   const articles = publishedInsights("en");
-  return shell(`<p class="text-xs font-semibold text-accent">Insights</p><h1 class="mt-3 font-display text-3xl font-bold">Practical guides for better digital workflows</h1><p class="mt-3 max-w-2xl leading-relaxed text-ink-soft">The first articles are being prepared. This page will be opened for indexing when complete, reviewed content is published.</p>${articles.length ? `<div class="mt-8">${articles.map((article) => `<article><h2><a href="/insights/${escapeHtml(article.slug)}/">${escapeHtml(article.title)}</a></h2><p>${escapeHtml(article.summary)}</p></article>`).join("")}</div>` : ""}`);
+  return shell(`<p class="text-xs font-semibold text-accent">Insights</p><h1 class="mt-3 font-display text-3xl font-bold">Practical guides for better digital workflows</h1><p class="mt-3 max-w-2xl leading-relaxed text-ink-soft">Practical articles on business systems, automation and workflows — what to examine, when to start and how to choose a solution that fits the business.</p>${articles.length ? `<div class="mt-8 grid gap-5 sm:grid-cols-2">${articles.map((article) => `<article><h2 class="font-display text-xl font-bold"><a href="/insights/${escapeHtml(article.slug)}/">${escapeHtml(article.title)}</a></h2><p class="mt-3 text-sm leading-relaxed text-ink-soft">${escapeHtml(article.summary)}</p><time class="mt-3 block text-xs text-muted" datetime="${escapeHtml(article.publishedAt)}">${escapeHtml(article.publishedAt)}</time></article>`).join("")}</div>` : ""}`);
 }
 
 function insightBody(slug: string) {
   const article = insights.en.find((item) => item.slug === slug && item.published);
   if (!article) return notFoundBody();
-  return shell(`<article><p><a href="/insights/">All insights</a></p><h1 class="mt-4 font-display text-3xl font-bold">${escapeHtml(article.title)}</h1><p class="mt-3 leading-relaxed text-ink-soft">${escapeHtml(article.summary)}</p>${article.sections.map((section) => `<section class="mt-8"><h2 class="font-display text-2xl font-bold">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-3 leading-relaxed text-ink-soft">${escapeHtml(paragraph)}</p>`).join("")}</section>`).join("")}</article>`);
+  const relatedServices = services.en.filter((service) => article.relatedServiceIds.includes(service.id));
+  const relatedProjects = projects.en.filter((project) => project.published && article.relatedProjectIds.includes(project.id));
+  const relatedArticles = publishedInsights("en").filter((item) => article.relatedArticleSlugs.includes(item.slug));
+  return shell(`<article><p><a href="/insights/">All insights</a></p><h1 class="mt-4 font-display text-3xl font-bold">${escapeHtml(article.title)}</h1><p class="mt-3 leading-relaxed text-ink-soft">${escapeHtml(article.summary)}</p><p class="mt-3 text-sm text-muted">${escapeHtml(article.author)} · <time datetime="${escapeHtml(article.publishedAt)}">${escapeHtml(article.publishedAt)}</time></p>${article.sections.map((section) => `<section class="mt-8"><h2 class="font-display text-2xl font-bold">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-3 leading-relaxed text-ink-soft">${escapeHtml(paragraph)}</p>`).join("")}</section>`).join("")}${relatedServices.length ? `<section class="mt-8"><h2 class="font-display text-xl font-bold">Related services</h2><ul>${relatedServices.map((service) => `<li><a href="/services/#${escapeHtml(service.id)}">${escapeHtml(service.title)}</a></li>`).join("")}</ul></section>` : ""}${relatedProjects.length ? `<section class="mt-8"><h2 class="font-display text-xl font-bold">Related project</h2><p><a href="/work/${escapeHtml(relatedProjects[0].id)}/">${escapeHtml(relatedProjects[0].name)} — ${escapeHtml(relatedProjects[0].category)}</a></p></section>` : ""}${relatedArticles.length ? `<section class="mt-8"><h2 class="font-display text-xl font-bold">Related articles</h2><ul>${relatedArticles.map((item) => `<li><a href="/insights/${escapeHtml(item.slug)}/">${escapeHtml(item.title)}</a></li>`).join("")}</ul></section>` : ""}<p class="mt-8"><a href="${escapeHtml(article.cta?.href ?? "/contact/")}">${escapeHtml(article.cta?.label ?? "Let's talk")}</a></p></article>`);
 }
 
 function notFoundBody() {
@@ -110,7 +115,7 @@ export function structuredData(path: string) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
-    name: "NolaNxt",
+    name: "Nolanxt",
     url: SITE_URL,
     logo: `${SITE_URL}/nolanxt-logo.svg`,
     founder: { "@type": "Person", name: "Alon Hanin" },
@@ -140,7 +145,7 @@ export function structuredData(path: string) {
       description: article.metaDescription,
       datePublished: article.publishedAt,
       dateModified: article.updatedAt ?? article.publishedAt,
-      author: { "@type": "Person", name: article.author },
+      author: article.author === "Nolanxt" ? { "@id": `${SITE_URL}/#organization` } : { "@type": "Person", name: article.author },
       publisher: { "@id": `${SITE_URL}/#organization` },
       mainEntityOfPage: canonicalUrl(path),
       ...(article.image ? { image: `${SITE_URL}${article.image.src}` } : {}),

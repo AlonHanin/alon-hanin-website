@@ -29,7 +29,10 @@ export function HomePage() {
       <HeroSection />
       <section className="py-9 sm:py-14">
         <Container>
-          <h2 className="font-display text-2xl font-bold">{lang === "he" ? "במה אוכל לעזור?" : "How can I help?"}</h2>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-display text-2xl font-bold">{lang === "he" ? "במה אוכל לעזור?" : "How can I help?"}</h2>
+            <a href="/insights/" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-accent">{lang === "he" ? "למדריכים" : "Insights"}<Arrow size={16} aria-hidden /></a>
+          </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {services[lang].map(({ title, text, icon: Icon, hash }) => (
               <a key={hash} href={`/services/#${hash}`} className="flex items-start gap-3 rounded-xl border border-line p-4 transition-colors hover:border-accent/40 sm:flex-col sm:p-5">

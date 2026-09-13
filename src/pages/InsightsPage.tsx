@@ -13,7 +13,7 @@ export function InsightsPage() {
       <Container>
         <p className="text-xs font-semibold text-accent">{he ? "תובנות" : "Insights"}</p>
         <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">{he ? "מדריכים מעשיים לעבודה דיגיטלית טובה יותר" : "Practical guides for better digital workflows"}</h1>
-        <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">{he ? "המאמרים הראשונים נמצאים בהכנה. העמוד ייפתח לאינדוקס כשיתפרסם בו תוכן מלא ומקצועי." : "The first articles are being prepared. This page will be opened for indexing when complete, reviewed content is published."}</p>
+        <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">{he ? "מאמרים מעשיים על מערכות עסקיות, אוטומציה ותהליכי עבודה — מה לבדוק, מתי להתחיל ואיך לבחור פתרון שמתאים לעסק." : "Practical articles on business systems, automation and workflows — what to examine, when to start and how to choose a solution that fits the business."}</p>
 
         {articles.length > 0 ? (
           <div className="mt-8 grid gap-4 sm:grid-cols-2">

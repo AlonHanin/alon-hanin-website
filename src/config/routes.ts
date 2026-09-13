@@ -11,6 +11,7 @@ export interface PageRoute {
   path: string;
   key: RouteKey;
   title: Localized<string>;
+  seoTitle?: Localized<string>;
   description: Localized<string>;
   indexable?: boolean;
 }
@@ -19,6 +20,7 @@ export const navigation = [
   { key: "home", path: "/", label: { he: "בית", en: "Home" } },
   { key: "services", path: "/services/", label: { he: "שירותים", en: "Services" } },
   ...(showProjects ? [{ key: "work", path: "/work/", label: { he: "עבודות", en: "Work" } }] : []),
+  ...(insights.en.some((article) => article.published) ? [{ key: "insights", path: "/insights/", label: { he: "מדריכים", en: "Insights" } }] : []),
   { key: "contact", path: "/contact/", label: { he: "עליי ויצירת קשר", en: "About & contact" } },
 ];
 
@@ -32,8 +34,9 @@ const coreRoutes: PageRoute[] = [
   {
     path: "/",
     key: "home",
-    title: { he: "מערכות דיגיטליות לעסקים", en: "Digital Systems for Business" },
-    description: { he: "מערכות ניהול, אפליקציות ואתרים מותאמים לעסקים שרוצים להפוך עבודה ידנית ומפוזרת לתהליך פשוט, ברור ומסודר.", en: "Custom management systems, web apps, websites and mobile apps for businesses turning manual, scattered work into a clear digital workflow." },
+    title: { he: "מערכות עסקיות ואוטומציה בהתאמה אישית", en: "Custom Business Systems & Automation" },
+    seoTitle: { he: "Custom Business Systems & Automation | Nolanxt", en: "Custom Business Systems & Automation | Nolanxt" },
+    description: { he: "Nolanxt designs custom business systems and automation around real business workflows, helping businesses reduce manual work and connect the tools they already use.", en: "Nolanxt designs custom business systems and automation around real business workflows, helping businesses reduce manual work and connect the tools they already use." },
   },
   {
     path: "/services/",
@@ -77,7 +80,8 @@ const insightRoutes: PageRoute[] = insights.en.filter((article) => article.publi
   return {
     path: `/insights/${article.slug}/`,
     key: "insight",
-    title: { en: article.metaTitle, he: hebrew?.metaTitle ?? article.metaTitle },
+    title: { en: article.title, he: hebrew?.title ?? article.title },
+    seoTitle: { en: article.metaTitle, he: hebrew?.metaTitle ?? article.metaTitle },
     description: { en: article.metaDescription, he: hebrew?.metaDescription ?? article.metaDescription },
   };
 });
@@ -96,7 +100,7 @@ export function routeFor(path: string) {
 export function pageTitle(path: string, lang: Lang) {
   const page = routeFor(path);
   const title = page?.title[lang] ?? (lang === "he" ? "העמוד לא נמצא" : "Page not found");
-  return `${title} | ${lang === "he" ? "אלון חנין" : "Alon Hanin"}`;
+  return page?.seoTitle?.[lang] ?? `${title} | Nolanxt`;
 }
 
 export function pageDescription(path: string, lang: Lang) {

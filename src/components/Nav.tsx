@@ -1,10 +1,10 @@
-import { Home, LayoutGrid, BriefcaseBusiness, MessageCircle, Languages } from "lucide-react";
+import { Home, LayoutGrid, BriefcaseBusiness, MessageCircle, Languages, BookOpen } from "lucide-react";
 import { navigation, normalizePath } from "../config/routes";
 import { langToggle } from "../data/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import { Container } from "./Container";
 
-const icons = { home: Home, services: LayoutGrid, work: BriefcaseBusiness, contact: MessageCircle };
+const icons = { home: Home, services: LayoutGrid, work: BriefcaseBusiness, insights: BookOpen, contact: MessageCircle };
 
 export function Nav() {
   const { lang, toggleLang } = useLanguage();
