@@ -75,26 +75,29 @@ export const about = {
     eyebrow: "About",
     headline: "Before I was a developer, I managed people, processes and complex operational environments.",
     paragraphs: [
-      "That experience shapes how I build systems today. I'm not only concerned with the code — I care about understanding the real business process, defining what actually needs to be built, simplifying workflows, and creating systems that are clear and usable.",
-      "My background includes a B.Sc. in Information Systems and roughly ten years of leadership and command experience as a reserve officer at the rank of Major. That combination of technical and operational background is the foundation of how I approach every project — understand how the business works first, then build.",
+      "That experience directly shapes the way I build systems today. To me, developing a system doesn't start with code — it starts with understanding the business, the people who work in it and the processes that happen in practice. Only after we understand what's truly needed can we simplify the process and build a clear, efficient and practical system.",
+      "I hold a bachelor's degree in Information Systems and have roughly ten years of experience in command, management and leading processes as an IDF officer, including reserve service, at the rank of Major. The combination of technological thinking, operational understanding and management experience is the foundation of my approach to every project — understand the problem first, then decide how best to solve it.",
     ],
     facts: [
-      { label: "Education", value: "B.Sc. Information Systems" },
-      { label: "Background", value: "Reserve Officer (Major), ~10 years of leadership" },
-      { label: "Approach", value: "Technical + operational — process before code" },
+      { label: "What I build", value: "Custom business systems" },
+      { label: "How I work", value: "Understand the process before writing code" },
+      { label: "Who I build for", value: "The business and the people who work in it" },
+      { label: "The result", value: "Less manual work. More order and control." },
     ],
   },
   he: {
     eyebrow: "עליי",
     headline: "לפני שהייתי מפתח, ניהלתי אנשים, תהליכים וסביבות מבצעיות מורכבות.",
     paragraphs: [
-      "החוויה הזו משפיעה על האופן שבו אני בונה מערכות היום. אני עוסק לא רק בקוד — אלא בהבנת התהליך העסקי האמיתי, בהגדרת מה שבאמת צריך להיבנות, בפישוט תהליכים וביצירת מערכות ברורות ושימושיות.",
-      "ברקע שלי תואר ראשון במערכות מידע, וכעשר שנות ניסיון בפיקוד וניהול כקצין במילואים בדרגת רב-סרן. שילוב של רקע טכני ותפעולי הוא הבסיס לאיך שאני ניגש לכל פרויקט — קודם מבינים איך העסק עובד, ואז בונים.",
+      `הניסיון הזה משפיע ישירות על הדרך שבה אני בונה מערכות היום. מבחינתי, פיתוח מערכת לא מתחיל בקוד — הוא מתחיל בהבנה של העסק, של האנשים שעובדים בו ושל התהליכים שמתרחשים בו בפועל. רק אחרי שמבינים מה באמת נדרש, אפשר לפשט את התהליך ולבנות מערכת ברורה, יעילה ושימושית.`,
+
+      `אני בעל תואר ראשון במערכות מידע, עם כעשר שנות ניסיון בפיקוד, ניהול והובלת תהליכים כקצין בצה"ל ובמילואים, בדרגת רב־סרן. השילוב בין חשיבה טכנולוגית, הבנה תפעולית וניסיון ניהולי הוא הבסיס לגישה שלי לכל פרויקט — להבין קודם את הבעיה, ורק אחר כך לבחור איך נכון לפתור אותה.`,
     ],
     facts: [
-      { label: "השכלה", value: "B.Sc. מערכות מידע" },
-      { label: "רקע", value: "קצין (רב-סרן) במילואים, כ-10 שנות ניהול" },
-      { label: "גישה", value: "טכני + תפעולי — הבנת התהליך לפני הקוד" },
+      { label: "מה אני בונה", value: "מערכות עסקיות בהתאמה אישית" },
+      { label: "איך אני עובד", value: "מבינים את התהליך לפני שכותבים קוד" },
+      { label: "למי אני בונה", value: "לא רק לעסק — גם לאנשים שעובדים בו" },
+      { label: "מה יוצא מזה", value: "פחות עבודה ידנית. יותר סדר ושליטה." },
     ],
   },
 } satisfies Localized<{

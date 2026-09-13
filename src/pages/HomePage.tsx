@@ -10,12 +10,12 @@ import { useLanguage } from "../i18n/LanguageContext";
 const services = {
   he: [
     { title: "לעשות סדר בעבודה", text: "מערכת שמרכזת לקוחות, משימות ונתונים.", icon: LayoutDashboard, hash: "business-systems" },
-    { title: "להציג את העסק ברשת", text: "אתר ברור שעוזר ללקוחות להבין ולפנות.", icon: Globe, hash: "business-websites" },
+    { title: "להציג את העסק ברשת", text: "אתר ברור שעוזר ללקוחות להבין מי אתם, מה אתם מוכרים ואיך ניתן להגיע אליכם.", icon: Globe, hash: "business-websites" },
     { title: "לחבר את העבודה בשטח", text: "אפליקציה שמחברת עובדים ולקוחות למערכת.", icon: Smartphone, hash: "mobile-apps" },
   ],
   en: [
     { title: "Bring work into one place", text: "A system for customers, tasks and business data.", icon: LayoutDashboard, hash: "business-systems" },
-    { title: "Put your business online", text: "A clear website that makes understanding and contact easy.", icon: Globe, hash: "business-websites" },
+    { title: "Put your business online", text: "A clear website that helps customers understand who you are, what you offer and how to reach you.", icon: Globe, hash: "business-websites" },
     { title: "Connect your team in the field", text: "An app connecting staff and customers to your system.", icon: Smartphone, hash: "mobile-apps" },
   ],
 };

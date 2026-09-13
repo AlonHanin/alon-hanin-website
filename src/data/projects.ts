@@ -17,7 +17,7 @@ export const projects: Localized<Project[]> = {
       images: projectImages.he.wineops,
     },
     {
-      id: "ap", name: "א.פ", category: "מערכת ניהול ואחזקת מבנים",
+      id: "ap", name: "א.פ ניהול ועדי בתים", category: "מערכת ניהול ואחזקת מבנים",
       visual: "property", featured: true, published: true, status: "active",
       headline: "בניינים, תקציבים ותשלומים. במקום אחד.",
       problem: "ניהול של כמה בניינים דורש מעקב נפרד אחר תקציבים, דירות, חיובים ותשלומים.",
@@ -74,7 +74,7 @@ export const projects: Localized<Project[]> = {
       images: projectImages.en.wineops,
     },
     {
-      id: "ap", name: "A.P", category: "Property management system",
+      id: "ap", name: "A.P Building Committee Management", category: "Property management system",
       visual: "property", featured: true, published: true, status: "active",
       headline: "Buildings, budgets and payments. All in one place.",
       problem: "Managing several buildings means keeping track of separate budgets, apartments, charges and payments.",

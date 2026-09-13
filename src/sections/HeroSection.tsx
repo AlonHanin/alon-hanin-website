@@ -17,7 +17,7 @@ export function HeroSection() {
           <p className="mb-3 text-xs font-medium text-accent-light">{lang === "he" ? "פיתוח מערכות, אתרים ואפליקציות לעסקים" : "Business systems, websites & apps"}</p>
           <h1 className="text-balance font-display text-[2rem] font-bold leading-[1.15] text-white sm:text-4xl lg:text-5xl">{t.headline}</h1>
           <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-white/75">
-            {lang === "he" ? "אני אלון. אני בונה פתרונות שמרכזים את העבודה, מפשטים תהליכים ומותאמים לעסק שלכם." : "I'm Alon. I build digital solutions that bring your work together and simplify the way your business runs."}
+            {lang === "he" ? "NolaNxt. בונים פתרונות שמרכזים את העבודה, מפשטים תהליכים ומותאמים לעסק שלכם." : "NolaNxt. We build solutions that bring work into one place, simplify processes and fit your business."}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <CTAButton href="/contact/">{t.ctaPrimary}</CTAButton>
