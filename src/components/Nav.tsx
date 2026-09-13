@@ -1,4 +1,4 @@
-import { Home, LayoutGrid, BriefcaseBusiness, MessageCircle, Languages, BookOpen } from "lucide-react";
+import { Home, LayoutGrid, BriefcaseBusiness, MessageCircle, BookOpen } from "lucide-react";
 import { navigation, normalizePath } from "../config/routes";
 import { langToggle } from "../data/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -30,9 +30,15 @@ export function Nav() {
               </a>
             ))}
           </nav>
-          <button type="button" onClick={toggleLang} aria-label={langToggle[lang].aria}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-line px-3 text-xs font-semibold text-ink-soft hover:border-accent/40 hover:text-accent">
-            <Languages size={16} aria-hidden />{langToggle[lang].label}
+          <button type="button" onClick={toggleLang} aria-label={langToggle[lang].aria} dir="ltr"
+            className="group inline-flex min-h-11 items-center rounded-xl border border-line bg-paper-raised p-1 shadow-[0_8px_24px_-20px_rgba(11,23,48,0.7)] transition-colors hover:border-accent/40">
+            <span className={`inline-flex min-h-9 min-w-10 items-center justify-center rounded-lg px-2 text-xs font-bold transition-colors ${lang === "en" ? "bg-[linear-gradient(135deg,var(--color-accent),var(--color-accent-deep))] text-white shadow-sm" : "text-ink-soft group-hover:text-accent"}`}>
+              EN
+            </span>
+            <span className="mx-0.5 h-4 w-px bg-line-soft" aria-hidden />
+            <span lang="he" className={`inline-flex min-h-9 min-w-10 items-center justify-center rounded-lg px-2 font-display text-xs font-bold transition-colors ${lang === "he" ? "bg-[linear-gradient(135deg,var(--color-accent),var(--color-accent-deep))] text-white shadow-sm" : "text-ink-soft group-hover:text-accent"}`}>
+              עב
+            </span>
           </button>
         </Container>
       </header>

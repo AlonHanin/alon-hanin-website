@@ -16,12 +16,14 @@ export function InsightsPage() {
         <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">{he ? "מאמרים מעשיים על מערכות עסקיות, אוטומציה ותהליכי עבודה — מה לבדוק, מתי להתחיל ואיך לבחור פתרון שמתאים לעסק." : "Practical articles on business systems, automation and workflows — what to examine, when to start and how to choose a solution that fits the business."}</p>
 
         {articles.length > 0 ? (
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 space-y-4">
             {articles.map((article) => (
-              <article key={article.slug} className="rounded-xl border border-line bg-paper-raised p-5">
-                <h2 className="font-display text-xl font-bold"><a href={`/insights/${article.slug}/`} className="hover:text-accent">{article.title}</a></h2>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{article.summary}</p>
-                <time className="mt-4 block text-xs text-muted" dateTime={article.publishedAt}>{article.publishedAt}</time>
+              <article key={article.slug} className="rounded-xl border border-line bg-paper-raised p-5 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8 sm:p-6">
+                <div className="min-w-0">
+                  <h2 className="font-display text-xl font-bold"><a href={`/insights/${article.slug}/`} className="hover:text-accent">{article.title}</a></h2>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{article.summary}</p>
+                </div>
+                <time className="mt-4 block shrink-0 text-xs text-muted sm:mt-0" dateTime={article.publishedAt}>{article.publishedAt}</time>
               </article>
             ))}
           </div>
