@@ -69,7 +69,7 @@ export const projects: Localized<Project[]> = {
       capabilities: ["הצגת שירותים", "תוכן מקצועי", "טופס פנייה"],
       stack: [],
       cta: { label: "לביקור באתר ORNIS", href: "https://ornis.co.il/" },
-      images: [],
+      images: projectImages.he.ornis,
     },
     {
       id: "rotem-clinic", name: "הקליניקה של רותם", category: "מערכת חכמה לניהול קליניקה",
@@ -83,7 +83,7 @@ export const projects: Localized<Project[]> = {
       capabilities: ["מעקב אחר לידים", "ניהול לקוחות פעילים", "סנכרון יומן", "חיבור ל־Gmail", "דאשבורד נתונים"],
       stack: [],
       integrations: ["Gmail"],
-      images: [],
+      images: projectImages.he.clinic,
     },
   ],
   en: [
@@ -151,7 +151,7 @@ export const projects: Localized<Project[]> = {
       capabilities: ["Service information", "Professional content", "Inquiry form"],
       stack: [],
       cta: { label: "Visit ORNIS", href: "https://ornis.co.il/" },
-      images: [],
+      images: projectImages.en.ornis,
     },
     {
       id: "rotem-clinic", name: "Rotem’s Clinic", category: "Smart clinic management system",
@@ -165,7 +165,7 @@ export const projects: Localized<Project[]> = {
       capabilities: ["Lead tracking", "Active client management", "Calendar sync", "Gmail integration", "Data dashboard"],
       stack: [],
       integrations: ["Gmail"],
-      images: [],
+      images: projectImages.en.clinic,
     },
   ],
 };

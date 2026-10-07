@@ -2,6 +2,8 @@ import type { Localized, Project } from "../types/index.ts";
 
 export const projectImages: Localized<Record<string, Project["images"]>> = {
   he: {
+    ornis: [{ src: "/projects/ornis.png", width: 1680, height: 782, presentation: "browser", alt: "עמוד הבית של ORNIS לכלכלה ושמאות מקרקעין, עם הצגת המשרד וקישור לתיאום פגישת ייעוץ.", caption: "עמוד הבית · משרד כלכלה ושמאות מקרקעין" }],
+    clinic: [{ src: "/projects/rotem-clinic.png", width: 1676, height: 942, presentation: "browser", alt: "היומן השבועי במערכת הקליניקה של רותם, עם סנכרון ליומן Google וניווט לתיקי מטופלים, לידים וניתוח נתונים.", caption: "יומן חכם · סנכרון עם Google וניהול פעילות הקליניקה" }],
     wineops: [{ src: "/projects/wineops.jpg", width: 461, height: 871, presentation: "device", alt: "מסך הפתיחה של WineOps במובייל, עם תחומי ניהול מלאי, מעקב מעבדה ועבודת צוות.", caption: "מסך פתיחה · מוצר בפיתוח" }],
     ap: [
       { src: "/projects/ap-1.png", width: 1160, height: 546, presentation: "browser", alt: "טבלת תקציב שנתי המשווה תכנון 2025 לשנת 2024, עם סעיפי ביטוח, מים, בנק וניהול.", caption: "תקציב שנתי · סעיפי הוצאות והשוואה בין שנים" },
@@ -19,6 +21,8 @@ export const projectImages: Localized<Record<string, Project["images"]>> = {
     ],
   },
   en: {
+    ornis: [{ src: "/projects/ornis.png", width: 1680, height: 782, presentation: "browser", alt: "ORNIS economics and real estate appraisal homepage introducing the firm with a consultation contact link.", caption: "Homepage · economics and real estate appraisal firm" }],
+    clinic: [{ src: "/projects/rotem-clinic.png", width: 1676, height: 942, presentation: "browser", alt: "Rotem’s clinic weekly calendar with Google Calendar sync and navigation to patient records, leads and data analysis.", caption: "Smart calendar · Google sync and clinic management" }],
     wineops: [{ src: "/projects/wineops.jpg", width: 461, height: 871, presentation: "device", alt: "WineOps mobile welcome screen showing inventory, lab tracking and team management areas.", caption: "Welcome screen · product in development" }],
     ap: [
       { src: "/projects/ap-1.png", width: 1160, height: 546, presentation: "browser", alt: "Annual budget table comparing the 2025 plan with 2024, including insurance, utilities, banking and management expenses.", caption: "Annual budget · expense categories and year comparisons" },
