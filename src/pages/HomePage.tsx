@@ -23,7 +23,7 @@ const services = {
 export function HomePage() {
   const { lang } = useLanguage();
   const Arrow = lang === "he" ? ArrowUpLeft : ArrowUpRight;
-  const featured = projects[lang].filter((p) => p.published && ["wineops", "ap"].includes(p.id));
+  const featured = projects[lang].filter((p) => p.published && ["ornis", "rotem-clinic"].includes(p.id));
   return (
     <>
       <HeroSection />

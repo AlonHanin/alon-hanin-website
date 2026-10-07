@@ -5,7 +5,8 @@ const backgrounds: Record<Project["visual"], string> = {
   property: "bg-[#edf5f2]",
   green: "bg-[#f5faf5]",
   bi: "bg-[#edf3fc]",
-  cats: "bg-[#faf3ee]",
+  ornis: "bg-[#edf1f6]",
+  clinic: "bg-[#e8f2ef]",
 };
 
 export function ProjectImage({ project, expanded = false, compact = false }: { project: Project; expanded?: boolean; compact?: boolean }) {

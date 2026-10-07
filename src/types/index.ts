@@ -38,7 +38,7 @@ export interface Project {
   solution: string;
   capabilities: string[];
   stack: string[];
-  visual: "property" | "green" | "bi" | "cats" | "wine";
+  visual: "property" | "green" | "bi" | "ornis" | "clinic" | "wine";
   featured: boolean;
   published: boolean;
   headline: string;

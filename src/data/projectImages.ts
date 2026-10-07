@@ -17,7 +17,6 @@ export const projectImages: Localized<Record<string, Project["images"]>> = {
       { src: "/projects/bi-1.png", width: 1208, height: 555, presentation: "browser", alt: "מודל נתונים המקשר בין טבלאות משחקים, תאריכים, ביקורות ומשתמשים לצורך ניתוח משותף.", caption: "מודל הנתונים · הקשרים בין משחקים, ביקורות, משתמשים ותאריכים" },
       { src: "/projects/bi-2.png", width: 843, height: 419, presentation: "browser", alt: "דשבורד עם דירוג עשרת המשחקים המובילים במדד הצלחה והשוואות לפי מחיר, פלטפורמות, זמן משחק ודירוגי משתמשים.", caption: "דשבורד ניתוח · השוואת מדד הצלחה לפי מחיר, פלטפורמות, זמן משחק וביקורות" },
     ],
-    cat4u: [{ src: "/projects/cat4u.jpg", width: 1530, height: 792, presentation: "browser", alt: "עמוד הבית של Cat4U עם מידע וקישורים לאימוץ חתולים, אירועים והתנדבות.", caption: "עמוד הבית · אתר לאימוץ חתולים" }],
   },
   en: {
     wineops: [{ src: "/projects/wineops.jpg", width: 461, height: 871, presentation: "device", alt: "WineOps mobile welcome screen showing inventory, lab tracking and team management areas.", caption: "Welcome screen · product in development" }],
@@ -35,6 +34,5 @@ export const projectImages: Localized<Record<string, Project["images"]>> = {
       { src: "/projects/bi-1.png", width: 1208, height: 555, presentation: "browser", alt: "Data model relating games, dates, reviews and users for combined analysis.", caption: "Data model · relationships between games, reviews, users and dates" },
       { src: "/projects/bi-2.png", width: 843, height: 419, presentation: "browser", alt: "Dashboard ranking ten games by a success score and comparing price, platforms, playtime and user ratings.", caption: "Analytics dashboard · success scores by price, platforms, playtime and reviews" },
     ],
-    cat4u: [{ src: "/projects/cat4u.jpg", width: 1530, height: 792, presentation: "browser", alt: "Cat4U homepage with information and links for cat adoption, events and volunteering.", caption: "Homepage · cat adoption website" }],
   },
 };

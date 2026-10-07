@@ -107,7 +107,8 @@ html[data-large-text="true"] main { overflow-wrap: anywhere; }
 .project-cover-bi { background: #edf3fc; }
 .project-cover-property { background: #e8f2ef; }
 .project-cover-green { background: #edf6ed; }
-.project-cover-cats { background: #faf0ec; }
+.project-cover-ornis { background: #edf1f6; }
+.project-cover-clinic { background: #e8f2ef; }
 .project-cover-orbit { position: absolute; width: 270px; height: 270px; border: 1px solid #ffffffb3; border-radius: 50%; box-shadow: 0 0 0 32px #ffffff30, 0 0 0 64px #ffffff20; z-index: -1; }
 .project-cover-phones { display: flex; align-items: center; justify-content: center; gap: 14px; height: 100%; padding: 16px; direction: ltr; }
 .project-cover-device { height: 100%; filter: drop-shadow(0 14px 10px #0b173038); transform: rotate(-5deg); }
